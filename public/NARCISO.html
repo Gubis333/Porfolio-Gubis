@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gubis Portfolio - MU Design Show</title>
+    <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
+    <link href="https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  <style>
+    html, body { height: 100%; margin: 0; padding: 0; overflow-x: hidden; }
+    body { color: #333; font-family: 'Neue Haas Grotesk Display Pro', sans-serif; }
+    .back-arrow-container {
+      position: absolute; top: 2rem; left: 1rem; z-index: 40;
+      transition: transform 0.2s, opacity 0.3s; opacity: 0.8;
+    }
+    .back-arrow-container:hover { transform: translateX(-5px); opacity: 1; }
+    .fade-slide { opacity: 0; transform: translateY(30px); transition: opacity 0.8s, transform 0.8s; }
+    .fade-slide.visible { opacity: 1; transform: translateY(0); }
+    .main-heading-margin-bottom { margin-bottom: 0.5rem; }
+    .mobile-block-spacing > *:not(:last-child) { margin-bottom: 1rem; }
+    .mobile-block-spacing { margin-top: 2rem; }
+    @media (max-width: 767px) {
+      .text-4xl { font-size: 2rem; }
+      .text-2xl { font-size: 1.3rem; }
+      .berlin-info { font-size: 1rem; line-height: 1.2; }
+      .prova-heading-desktop { display: none; }
+      .prova-heading-mobile { display: block; }
+      .mobile-block-spacing { margin-top: 2rem; }
+    }
+    @media (min-width: 768px) {
+      .prova-heading-desktop { display: block; }
+      .prova-heading-mobile { display: none; }
+      .main-heading-margin-bottom { margin-bottom: 0.5rem; }
+      .mobile-block-spacing { margin-top: 0 !important; }
+    }
+  </style>
+</head>
+<body class="m-0 p-0">
+
+  <!-- Video background fisso -->
+  <div class="fixed top-0 left-0 w-full h-screen -z-10 overflow-hidden">
+    <video autoplay muted loop playsinline class="w-full h-full object-cover">
+      <source src="https://res.cloudinary.com/dzwg40mls/video/upload/v1748268251/INTRO_Narciso_AltaDefinizione_tldvfp.mp4" type="video/mp4" />
+      Il tuo browser non supporta il video HTML5.
+    </video>
+  </div>
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-white bg-opacity-90 text-gray-900 py-4 px-6 flex justify-between items-center header-fade-slide" style="opacity:0; transform:translateY(-40px); pointer-events:none;">
+    <a href="index.html" class="text-xl uppercase font-normal text-gray-500 hover:text-gray-900 transition-colors">Gubis</a>
+    <div class="space-x-6">
+      <a href="work.html" class="text-lg uppercase font-normal text-gray-500 hover:text-gray-900 transition-colors">Work</a>
+      <a href="contacts.html" class="text-lg uppercase font-normal text-gray-500 hover:text-gray-900 transition-colors">Contacts</a>
+    </div>
+  </header>
+
+  <!-- Contenuto scrollabile sopra il video -->
+  <section class="relative min-h-screen flex p-10">
+    <a href="work.html" class="back-arrow-container">
+      <svg class="w-8 h-8 text-white fixed" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+      </svg>
+    </a>
+  </section>
+
+  <section class="relative bg-white text-gray-900 px-8 py-20">
+    <div class="container mx-auto px-4 py-8 md:py-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-8">
+        <div class="fade-slide">
+          <h1 class="text-4xl md:text-5xl font-caslon main-heading-margin-bottom prova-heading-mobile">Short Movie - Narciso</h1>
+          <h1 class="text-4xl md:text-5xl font-caslon main-heading-margin-bottom prova-heading-desktop">Short Movie</h1>
+        </div>
+        <div class="md:col-span-2 fade-slide hidden md:block">
+          <h2 class="text-3xl md:text-5xl font-light main-heading-margin-bottom font-caslon">Narciso</h2>
+        </div>
+        <div class="mobile-block-spacing fade-slide">
+          <p class="text-lg uppercase tracking-wide leading-tight berlin-info">Berlin<br>August 2024<br>PERSONAL PROJECT</p>
+          <p class="text-lg leading-tight mt-6 italic">
+            Runtime: 3’15” Shot on Sony Alpha 7s III
+          </p>
+        </div>
+        <div class="mobile-block-spacing fade-slide">
+          <p class="text-2xl leading-tight">
+            This short film was conceived and produced entirely in Berlin. The idea was born from a conversation between students of literature, design, and law about Greek myths and the symbolic resonance they still hold today. Narcissus is a modern reinterpretation of the myth, aiming to preserve and convey the same visual magic of the ancient tales and the universality of their meaning. The entire project was developed over the course of about three months, with only two days dedicated to on-site filming.
+          </p>
+        </div>
+        <div class="mobile-block-spacing fade-slide">
+          <p class="text-2xl leading-tight italic">
+            “Our identity is shaped in a delicate balance between who we truly are and the image we project in the eyes of others. Loving only himself, Narcissus becomes lost in his own reflection, fooling himself into believing that this love can fill his emptiness and bring fulfillment.„
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script defer>
+    document.addEventListener('DOMContentLoaded', function() {
+      const header = document.querySelector('.header-fade-slide');
+      let headerVisible = false;
+      function showHeader() {
+        if (!headerVisible) {
+          header.style.transition = 'opacity 0.7s, transform 0.7s';
+          header.style.opacity = '1';
+          header.style.transform = 'translateY(0)';
+          header.style.pointerEvents = '';
+          headerVisible = true;
+        }
+      }
+      function hideHeader() {
+        if (headerVisible) {
+          header.style.opacity = '0';
+          header.style.transform = 'translateY(-40px)';
+          header.style.pointerEvents = 'none';
+          headerVisible = false;
+        }
+      }
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 40) showHeader();
+        else hideHeader();
+      });
+      if (window.scrollY > 40) showHeader();
+
+      const fadeEls = document.querySelectorAll('.fade-slide');
+      fadeEls.forEach((el, i) => {
+        setTimeout(() => { el.classList.add('visible'); }, 150 + i * 180);
+      });
+    });
+  </script>
+</body>
+</html>

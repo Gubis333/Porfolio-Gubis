@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'F37 Caslon'; /* Questo è il nome che userai in CSS */
+  src: url('fonts/F37Caslon-RegularDisplay.otf') format('opentype'); /* Percorso relativo alla root del progetto */
+  font-weight: 400; /* Per il peso 'regular' */
+  font-style: normal;
+  font-display: swap; /* Migliora il caricamento del font */
+}
+
+@font-face {
+  font-family: 'F37 Caslon'; /* Stesso nome di famiglia, ma stile diverso */
+  src: url('/fonts/F37Caslon-Italic.otf') format('opentype');
+  font-weight: 400; /* Puoi specificare anche 'normal' per questo */
+  font-style: italic; /* Per lo stile 'italic' */
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

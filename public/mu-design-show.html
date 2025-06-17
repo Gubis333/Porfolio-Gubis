@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gubis - MU Design Show</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20id%3D%22Layer_1%22%20data-name%3D%22Layer%201%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2050%2050%22%3E%3Crect%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22white%22/%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%23000%3Bstroke-width%3A0px%3B%7D%3C/style%3E%3C/defs%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M39.58%2C27.72l-2.76%2C1.25v4.72c0%2C1.27.05%2C2.63.18%2C3.94-2.67%2C2.12-6.85%2C3.04-10.9%2C3.04-9.14%2C0-15.67-5.78-15.67-16.26%2C0-9.26%2C5.86-15.07%2C16.23-15.07%2C3.68%2C0%2C6.74.52%2C9.52%2C1.84.11%2C2.25.26%2C4.49.53%2C6.72l-1.6.41c-1.29-5.18-4.66-7.18-9.25-7.18-6.35%2C0-10.46%2C4.75-10.46%2C13.28%2C0%2C9.84%2C5.12%2C14.48%2C11.11%2C14.48%2C2.16%2C0%2C4.25-.44%2C6.15-1.86v-8.05l-3.96-1.25v-.88h10.89v.88Z%22/%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -12,6 +13,20 @@
       }
     </script>
     <style>
+        @font-face {
+            font-family: 'Dashiell';
+            src: url('https://res.cloudinary.com/dzwg40mls/raw/upload/v1750186604/Dashiell-Regular_ijnmru.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Dashiell';
+            src: url('https://res.cloudinary.com/dzwg40mls/raw/upload/v1750186604/Dashiell-Italic_eme2ys.woff') format('woff');
+            font-weight: normal;
+            font-style: italic;
+            font-display: swap;
+        }
         .nav-link,
         .to-top-link {
             transition: color 0.2s;
@@ -34,7 +49,7 @@
         }
     </style>
 </head>
-<body class="bg-white min-h-screen flex flex-col font-dashiell tracking-wide overscroll-none" style="font-family: 'Dashiell Text', serif;">
+<body class="bg-white min-h-screen flex flex-col font-dashiell tracking-wide overscroll-none" style="font-family: 'Dashiell', serif;">
     <!-- Header -->
     <header id="main-header" class="text-xl fixed top-0 left-0 right-0 px-3 md:px-4 py-2 bg-transparent transition-colors duration-300 z-50">
         <nav class="flex justify-between items-center mx-auto">
@@ -76,7 +91,7 @@
     </div>
 
     <!-- Main Content -->
-    <main class="flex-1 pb-10 px-10 pt-10 md:px-40 relative z-10 bg-white" style="margin-top: 100vh;">
+    <main class="flex-1 pb-10 px-4 pt-10 md:px-40 relative z-10 bg-white" style="margin-top: 100vh;">
         <!-- Testo Descrittivo -->
         <section class="relative bg-white md:py-8">
             <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] md:gap-6 lg:gap-6">
@@ -186,11 +201,8 @@
             </div>
         </section>
     </main>
-
-
-
     <!-- Footer -->
-    <footer class="text-sm md:text-lg px-10 md:px-40 py-4 flex flex-col md:flex-row justify-between items-center gap-2 mt-auto bg-white z-10">
+    <footer class="text-sm md:text-lg px-4 md:px-40 py-4 flex flex-col md:flex-row justify-between items-center gap-2 mt-auto bg-white z-10">
         <p class="mt-2 md:mt-0">&copy; Gubis 2025</p>
         <p><a href="mailto:gubis333@gmail.com" class="hover:underline">gubis333@gmail.com</a></p>
         <p class="mt-2 md:mt-0">Milan, Italy</p>

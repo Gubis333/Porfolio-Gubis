@@ -1,0 +1,69 @@
+@font-face {
+  font-family: 'F37 Caslon'; /* Questo è il nome che userai in CSS */
+  src: url('fonts/F37Caslon-RegularDisplay.otf') format('opentype'); /* Percorso relativo alla root del progetto */
+  font-weight: 400; /* Per il peso 'regular' */
+  font-style: normal;
+  font-display: swap; /* Migliora il caricamento del font */
+}
+
+@font-face {
+  font-family: 'F37 Caslon'; /* Stesso nome di famiglia, ma stile diverso */
+  src: url('/fonts/F37Caslon-Italic.otf') format('opentype');
+  font-weight: 400; /* Puoi specificare anche 'normal' per questo */
+  font-style: italic; /* Per lo stile 'italic' */
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RMNeue';
+  src: url('/fonts/RMNeue-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Opzionale: per migliorare il caricamento del font */
+}
+
+@font-face {
+  font-family: 'RMNeue';
+  src: url('/fonts/RMNeue-Italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RMNeue';
+  src: url('/fonts/RMNeue-Light.otf') format('opentype');
+  font-weight: 300; /* O il valore numerico appropriato per "light" */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RMNeue';
+  src: url('/fonts/RMNeue-LightItalic.otf') format('opentype');
+  font-weight: 300; /* O il valore numerico appropriato per "light" */
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Dashiell';
+  src: url('/fonts/Dashiell-Regular.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Dashiell';
+  src: url('/fonts/Dashiell-Italic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

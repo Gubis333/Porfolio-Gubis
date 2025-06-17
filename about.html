@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gubis - About</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: { extend: {} },
+        plugins: [tailwindcssAspectRatio],
+      }
+    </script>
+    <style>
+        .nav-link,
+        .to-top-link {
+            transition: color 0.2s;
+        }
+        .nav-link:hover,
+        .to-top-link:hover {
+            color: #b91c1c; /* red-700 */
+        }
+        .nav-link.active {
+            color: #b91c1c !important; /* red-700 */
+        }
+        .fade-slide {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1);
+        }
+        .fade-slide.fade-slide-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white min-h-screen flex flex-col font-dashiell tracking-wide overscroll-none opacity-0 transition-opacity duration-700" style="font-family: 'Dashiell Text', serif;">
+    <!-- Header -->
+    <header id="main-header" class="text-xl fixed top-0 left-0 right-0 px-3 md:px-4 py-2 bg-transparent transition-colors duration-300 z-50">
+        <nav class="flex justify-between items-center mx-auto">
+            <div class="tracking-wide text-lg hidden font-light md:block">
+                <a href="index.html" class="nav-link">GUBIS</a>
+            </div>
+            <div class="flex-1 md:flex-initial flex justify-center md:justify-end">
+                <div class="flex font-light space-x-4 md:space-x-8 text-base md:text-lg">
+                    <a href="about.html" class="nav-link text-red-700">ABOUT</a>
+                    <a href="projects.html" class="nav-link">PROJECTS</a>
+                    <a href="mailto:gubis333@gmail.com" class="nav-link">CONTACT</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 pb-10 px-10 pt-20 md:px-40 relative z-10 bg-white">
+        <!-- Testo Descrittivo -->
+        <section class="relative bg-white md:py-8">
+            <div class="grid grid-cols-1 lg:grid-cols-[2fr_2fr] md:gap-6 lg:gap-6">
+                <div class="bg-white bg-opacity-80 p-4">
+                    <h1 class="text-3xl md:text-4xl">
+                        Hello, I'm Gubis <br>
+                        <span class="italic">aka Alessandro Parente,</span> <br>
+                        I'm <span id="animated-role" class="inline-block transition-all duration-500">a Graphic Designer</span>
+                    </h1>
+                </div>
+                <div class="mobile-block-spacing bg-white bg-opacity-80 p-4">
+                    <p class="text-base md:text-lg md:leading-tight leading-tight">
+                        I'm a design graduate from Politecnico di Milano. I work on art direction, video editing, and branding, always trying to make visuals that connect. I enjoy working with people from different backgrounds. Cinema (especially Alice Rohrwacher’s films) and beach volley keep me inspired.
+                    </p>
+                    <ul class="mt-8 md:mt-20 text-base md:text-lg leading-tight">
+                        <li>Email: <a href="mailto:gubis333@gmail.com" class="hover:text-red-700">gubis333@gmail.com</a></li>
+                        <li>Instagram: <a href="https://instagram.com/gubis.333" target="_blank" class="underline hover:text-red-700">@gubis.333</a></li>
+                        <li>LinkedIn: <a href="https://www.linkedin.com/in/alessandro-parente-01a177259/" target="_blank" class="underline hover:text-red-700">Alessandro Parente</a></li>
+                        <li>Location: Milan, Italy</li>
+                    </ul>
+                    <a href="/public/curriculum/CV_AlessandroParente_2025 .pdf" target="_blank" class="mt-10 hover:text-red-700 transition-colors text-base md:text-lg flex items-center gap-2">
+                        <span style="font-size:1rem;line-height:1;">&#8595;</span>
+                        Download CV
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Foto sticker draggable -->
+        <div id="sticker-photo"
+            class="select-none"
+            style="left:initial; top:350px; bottom:auto; z-index:1000; cursor:grab; touch-action:none; transform:rotate(5deg); width:300px; height:400px; position:absolute;">
+            <img src="https://res.cloudinary.com/dzwg40mls/image/upload/v1750078092/DSC_5785_hsgpvj.webp"
+                alt="Alessandro Parente"
+                style="width:100%; height:100%; border:6px solid #fff; box-shadow:0 6px 24px 0 rgba(0,0,0,0.18); object-fit:cover; background:#fff; pointer-events:none;">
+            <div id="sticker-rotate-area"
+                style="position:absolute; left:0; top:0; width:100%; height:100%; pointer-events:auto; z-index:20;"></div>
+        </div>
+        <style>
+            @media (max-width: 1024px) and (min-width: 769px) {
+                #sticker-photo {
+                    position: absolute !important;
+                    left: auto;
+                    right: 150px !important;
+                    top: auto;
+                    bottom: auto;
+                    width: 180px !important;
+                    height: 240px !important;
+                }
+            }
+            @media (max-width: 1024px) {
+                #sticker-photo {
+                    width: 180px !important;
+                    height: 240px !important;
+                }
+            }
+            @media (max-width: 768px) {
+                #sticker-photo {
+                    position: static !important;
+                    left: unset !important;
+                    top: unset !important;
+                    right: unset !important;
+                    bottom: unset !important;
+                    margin: 0 auto 1.5rem auto !important;
+                    display: block !important;
+                    transform: rotate(5deg) !important;
+                    width: 160px !important;
+                    height: 210px !important;
+                    cursor: grab !important;
+                    z-index: 1 !important;
+                }
+                #sticker-rotate-area {
+                    display: none !important;
+                }
+            }
+        </style>
+    </main>
+    <!-- Footer -->
+    <footer class="text-sm md:text-lg px-10 md:px-40 py-4 flex flex-col md:flex-row justify-between items-center gap-2 bg-white z-10 w-full"
+        style="max-width:100vw;">
+        <p class="mt-2 md:mt-0">&copy; Gubis 2025</p>
+        <p><a href="mailto:gubis333@gmail.com" class="hover:underline">gubis333@gmail.com</a></p>
+        <p class="mt-2 md:mt-0">Milan, Italy</p>
+        <p class="mt-2 md:mt-0">
+            <a href="#" class="to-top-link">To Top ↑</a>
+        </p>
+    </footer>
+    <script>
+        // Fade-in animazione pagina
+        document.addEventListener('DOMContentLoaded', function () {
+            document.body.classList.add('opacity-100');
+        });
+
+        // Smooth scroll to top for To Top link
+        document.querySelectorAll('.to-top-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // Animazione fade-slide per immagini
+        document.addEventListener('DOMContentLoaded', function () {
+            const images = document.querySelectorAll('img.fade-slide');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-slide-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            images.forEach(img => observer.observe(img));
+        });
+
+        // Header background trasparente on top, bianco on scroll
+        document.addEventListener('DOMContentLoaded', function () {
+            const header = document.getElementById('main-header');
+            function updateHeaderBg() {
+                if (window.scrollY > 10) {
+                    header.classList.remove('bg-transparent');
+                    header.classList.add('bg-white');
+                } else {
+                    header.classList.remove('bg-white');
+                    header.classList.add('bg-transparent');
+                }
+            }
+            updateHeaderBg();
+            window.addEventListener('scroll', updateHeaderBg);
+
+            // Animated roles in h1
+            const roles = [
+                "a Graphic Designer",
+                "an Illustrator",
+                "a Film Maker",
+                "an Art Director",
+                "a Visual Storyteller",
+                "a 3D Artist",
+
+            ];
+            const roleSpan = document.getElementById('animated-role');
+            let idx = 0;
+
+            function animateRoleChange() {
+                // Fade out
+                roleSpan.style.opacity = 0;
+                setTimeout(() => {
+                    idx = (idx + 1) % roles.length;
+                    roleSpan.textContent = roles[idx];
+                    // Fade in
+                    roleSpan.style.opacity = 1;
+                }, 400);
+            }
+
+            // Initial fade in
+            roleSpan.style.opacity = 1;
+            setInterval(animateRoleChange, 2200);
+        });
+
+        // Draggable & rotatable sticker photo (mobile: return to place after drag)
+        (function() {
+            const sticker = document.getElementById('sticker-photo');
+            const rotateArea = document.getElementById('sticker-rotate-area');
+            function isMobile() {
+                return window.innerWidth <= 768;
+            }
+            let isDragging = false;
+            let isRotating = false;
+            let offsetX = 0, offsetY = 0;
+            let rotation = 5;
+            let center = { x: 0, y: 0 };
+            let initial = { left: '', top: '', position: '', transform: '' };
+
+            function setRotation(deg) {
+                rotation = deg;
+                sticker.style.transform = `rotate(${rotation}deg)`;
+            }
+
+            function getAngle(cx, cy, px, py) {
+                return Math.atan2(py - cy, px - cx) * 180 / Math.PI;
+            }
+
+            // Drag
+            function onMouseDown(e) {
+                // Save initial position for mobile
+                if (isMobile()) {
+                    const rect = sticker.getBoundingClientRect();
+                    initial.left = sticker.style.left;
+                    initial.top = sticker.style.top;
+                    initial.position = sticker.style.position;
+                    initial.transform = sticker.style.transform;
+                    isDragging = true;
+                    sticker.style.cursor = 'grabbing';
+                    offsetX = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+                    offsetY = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
+                    sticker.style.position = 'fixed';
+                    // Usa solo eventi touch su mobile
+                    document.addEventListener('touchmove', onMouseMove, {passive:false});
+                    document.addEventListener('touchend', onMouseUp);
+                    return;
+                }
+                // Check if near border for rotation (20px from edge)
+                const rect = sticker.getBoundingClientRect();
+                const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+                const y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
+                const border = 24;
+                if (
+                    x < border || x > rect.width - border ||
+                    y < border || y > rect.height - border
+                ) {
+                    isRotating = true;
+                    center = {
+                        x: rect.left + rect.width / 2,
+                        y: rect.top + rect.height / 2
+                    };
+                    sticker.style.cursor = 'crosshair';
+                    document.addEventListener('mousemove', onRotateMove);
+                    document.addEventListener('mouseup', onRotateUp);
+                    document.addEventListener('touchmove', onRotateMove, {passive:false});
+                    document.addEventListener('touchend', onRotateUp);
+                } else {
+                    isDragging = true;
+                    sticker.style.cursor = 'grabbing';
+                    offsetX = x;
+                    offsetY = y;
+                    document.addEventListener('mousemove', onMouseMove);
+                    document.addEventListener('mouseup', onMouseUp);
+                    document.addEventListener('touchmove', onMouseMove, {passive:false});
+                    document.addEventListener('touchend', onMouseUp);
+                }
+            }
+            function onMouseMove(e) {
+                if (!isDragging) return;
+                e.preventDefault && e.preventDefault();
+                // Su mobile usa solo touch
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                sticker.style.left = (clientX - offsetX) + 'px';
+                sticker.style.top = (clientY - offsetY) + 'px';
+                sticker.style.bottom = 'auto';
+                sticker.style.right = 'auto';
+                sticker.style.position = 'fixed';
+                sticker.style.transform = `rotate(${rotation}deg)`;
+            }
+            function onMouseUp() {
+                if (isMobile()) {
+                    // Restore initial position after drag on mobile
+                    sticker.style.position = initial.position || '';
+                    sticker.style.left = '';
+                    sticker.style.top = '';
+                    sticker.style.bottom = '';
+                    sticker.style.right = '';
+                    sticker.style.transform = initial.transform || 'rotate(5deg)';
+                    isDragging = false;
+                    sticker.style.cursor = 'grab';
+                    document.removeEventListener('touchmove', onMouseMove);
+                    document.removeEventListener('touchend', onMouseUp);
+                    return;
+                }
+                isDragging = false;
+                sticker.style.cursor = 'grab';
+                document.removeEventListener('mousemove', onMouseMove);
+                document.removeEventListener('mouseup', onMouseUp);
+                document.removeEventListener('touchmove', onMouseMove);
+                document.removeEventListener('touchend', onMouseUp);
+            }
+
+            // Rotation
+            let startAngle = 0, startRotation = 0;
+            function onRotateMove(e) {
+                if (!isRotating) return;
+                e.preventDefault && e.preventDefault();
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                const angle = getAngle(center.x, center.y, clientX, clientY);
+                if (typeof startAngle !== 'number') startAngle = angle;
+                setRotation(startRotation + angle - startAngle);
+            }
+            function onRotateUp(e) {
+                isRotating = false;
+                sticker.style.cursor = 'grab';
+                startAngle = 0;
+                startRotation = rotation;
+                document.removeEventListener('mousemove', onRotateMove);
+                document.removeEventListener('mouseup', onRotateUp);
+                document.removeEventListener('touchmove', onRotateMove);
+                document.removeEventListener('touchend', onRotateUp);
+            }
+
+            // Start rotation on border
+            if (rotateArea) {
+                rotateArea.addEventListener('mousedown', onMouseDown);
+                rotateArea.addEventListener('touchstart', onMouseDown, {passive:false});
+            }
+            sticker.addEventListener('mousedown', onMouseDown);
+            sticker.addEventListener('touchstart', onMouseDown, {passive:false});
+
+            // Sposta lo sticker sopra il titolo su mobile
+            function moveStickerMobile() {
+                if (isMobile()) {
+                    const main = document.querySelector('main');
+                    if (main && sticker && main.firstChild !== sticker) {
+                        main.insertBefore(sticker, main.firstChild);
+                    }
+                }
+            }
+            window.addEventListener('resize', moveStickerMobile);
+            document.addEventListener('DOMContentLoaded', moveStickerMobile);
+            moveStickerMobile();
+        })();
+    </script>
+</body>
+</html>

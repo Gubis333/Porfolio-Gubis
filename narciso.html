@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gubis - Narciso</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: { extend: {} },
+        plugins: [tailwindcssAspectRatio],
+      }
+    </script>
+    <style>
+        .nav-link,
+        .to-top-link {
+            transition: color 0.2s;
+        }
+        .nav-link:hover,
+        .to-top-link:hover {
+            color: #b91c1c;
+        }
+        .nav-link.active {
+            color: #b91c1c !important;
+        }
+        .fade-slide {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1);
+        }
+        .fade-slide.fade-slide-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white min-h-screen flex flex-col font-dashiell tracking-wide overscroll-none" style="font-family: 'Dashiell Text', serif;">
+    <!-- Header -->
+    <header id="main-header" class="text-xl fixed top-0 left-0 right-0 px-3 md:px-4 py-2 bg-transparent transition-colors duration-300 z-50">
+        <nav class="flex justify-between items-center mx-auto">
+            <div class="tracking-wide text-lg hidden font-light md:block">
+                <a href="index.html" class="nav-link">GUBIS</a>
+            </div>
+            <div class="flex-1 md:flex-initial flex justify-center md:justify-end">
+                <div class="flex font-light space-x-4 md:space-x-8 text-base md:text-lg">
+                    <a href="about.html" class="nav-link">ABOUT</a>
+                    <a href="projects.html" class="nav-link">PROJECTS</a>
+                    <a href="mailto:gubis333@gmail.com" class="nav-link">CONTACT</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Prev / Next Fixed Navigation -->
+    <div class="z-50 hidden md:block">
+        <div class="fixed bottom-4 left-6">
+            <a href="pagina_precedente.html" class="text-base md:text-lg font-light hover:text-red-700 transition-colors">← Prev</a>
+        </div>
+        <div class="fixed bottom-4 right-6">
+            <a href="mu-design-show.html" class="text-base md:text-lg font-light hover:text-red-700 transition-colors">Next →</a>
+        </div>
+    </div>
+
+    <!-- Masterhead Video -->
+    <div class="w-full h-screen fixed top-0 left-0 z-0 pointer-events-none">
+        <video
+            class="absolute inset-0 w-full h-full object-cover"
+            src="https://res.cloudinary.com/dzwg40mls/video/upload/v1748866630/INTRO_Narciso_AltaDefinizione_mzjw4n.mp4"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="auto"
+        ></video>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 pb-10 px-10 pt-10 md:px-40 relative z-10 bg-white" style="margin-top: 100vh;">
+        <!-- Testo Descrittivo -->
+        <section class="relative bg-white md:py-8">
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] md:gap-6 lg:gap-6">
+                <div class="bg-white bg-opacity-80 p-4">
+                    <h1 class="text-3xl md:text-4xl">Narciso</h1>
+                    <p class="text-lg md:text-xl tracking-wide italic">Short Movie</p>
+                </div>
+                <div class="mobile-block-spacing bg-white bg-opacity-80 p-4">
+                    <p class="text-base md:text-lg md:leading-tight leading-tight">
+                        This short film was conceived and produced entirely in Berlin. The idea originated from a conversation among literature, design, and law students about Greek myths and the importance of their symbolic resonance. "Narciso" is a modern reinterpretation of the myth, which nonetheless aims to preserve and convey the visual magic of ancient tales and the universality of their meaning. The entire project was developed in approximately three months, with only two days dedicated to on-location shooting.
+                    </p>
+                    <details class="mt-4 text-sm md:text-base">
+                        <summary class="cursor-pointer select-none text-gray-500">Credits</summary>
+                        <ul class="mt-2 ml-4 text-gray-500 leading-tight" style="list-style: none;">
+                            <li><span>Screenwriter and Director:</span> Alessandro Parente</li>
+                            <li><span>Lead Actor:</span> Stanislas De Ferluc</li>
+                            <li><span>Second Actor:</span> Victor Vallette</li>
+                            <li><span>Acknowledgements:</span> Clara Pisoni, Zoé Nayrac, Lou Vincent Souscaret, Sara Teršar</li>
+                        </ul>
+                    </details>
+                </div>
+            </div>
+        </section>
+        <!-- Video YouTube embedded -->
+        <div class="relative w-full mt-4" style="padding-bottom: 75%;">
+        <iframe
+            class="absolute top-0 left-0 w-full h-full rounded-lg"
+            src="https://www.youtube.com/embed/QSx7WgyltME"
+            title="Narciso - Full Movie"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+        ></iframe>
+        </div>
+
+        <!-- 2 Immagini Singole -->
+        <section class="mt-4">
+            <div class="grid grid-cols-1 gap-4">
+                <div class="aspect-w-4 aspect-h-3">
+                    <img src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748884991/Immagine_da_Narciso_ykinwj.webp" alt="Project Image 1" class="object-cover fade-slide" loading="lazy">
+                </div>
+                <div class="aspect-w-4 aspect-h-3">
+                    <img src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748884991/Nariso_Title__twwamt.webp" alt="Project Image 2" class="object-cover fade-slide" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Griglia Doppia -->
+        <section class="mt-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div class="aspect-w-4 aspect-h-3 h-full">
+                    <img src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748884991/Corsa_nel_campo_ftz1en.webp" alt="Project Image 3" class="object-cover fade-slide" loading="lazy">
+                </div>
+                <div class="aspect-w-4 aspect-h-3">
+                    <img src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748884992/Stan_running_cqoh6d.webp" alt="Project Image 4" class="object-cover fade-slide" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Immagine Singola -->
+        <section class="mt-4">
+            <div class="grid grid-cols-1 gap-4">
+                <div class="aspect-w-4 aspect-h-3">
+                    <img src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748884991/Stan_guarda_dietro_gyigzs.webp" alt="Project Image 5" class="object-cover fade-slide" loading="lazy">
+                </div>
+                <div class="w-full flex justify-center">
+                    <p class="p-4 text-base md:text-lg italic flex-auto text-center">
+                        (Backstage)
+                    </p>
+                </div>
+                <div class="aspect-w-4 aspect-h-3">
+                    <img src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748884991/R1-02577-0017_llfddw.webp" alt="Project Image 6" class="object-cover fade-slide" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Griglia Backstage -->
+        <section class="mt-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div class="aspect-w-4 aspect-h-3 h-full">
+                    <img src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748884991/R1-02577-0022_c8gwey.webp" alt="Project Image 7" class="object-cover fade-slide" loading="lazy">
+                </div>
+                <div class="aspect-w-4 aspect-h-3">
+                    <img src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748884991/R1-02577-0019_iv0brc.webp" alt="Project Image 8" class="object-cover fade-slide" loading="lazy">
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="text-sm md:text-lg px-10 md:px-40 py-4 flex flex-col md:flex-row justify-between items-center gap-2 mt-auto bg-white z-10">
+        <p class="mt-2 md:mt-0">&copy; Gubis 2025</p>
+        <p><a href="mailto:gubis333@gmail.com" class="hover:underline">gubis333@gmail.com</a></p>
+        <p class="mt-2 md:mt-0">Milan, Italy</p>
+        <p class="mt-2 md:mt-0">
+            <a href="#" class="to-top-link">To Top ↑</a>
+        </p>
+    </footer>
+    <script>
+        // Smooth scroll to top for To Top link
+        document.querySelectorAll('.to-top-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // Animazione fade-slide per immagini
+        document.addEventListener('DOMContentLoaded', function () {
+            const images = document.querySelectorAll('img.fade-slide');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-slide-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            images.forEach(img => observer.observe(img));
+        });
+
+        // Header background trasparente on top, bianco on scroll
+        document.addEventListener('DOMContentLoaded', function () {
+            const header = document.getElementById('main-header');
+            function updateHeaderBg() {
+                if (window.scrollY > 10) {
+                    header.classList.remove('bg-transparent');
+                    header.classList.add('bg-white');
+                } else {
+                    header.classList.remove('bg-white');
+                    header.classList.add('bg-transparent');
+                }
+            }
+            updateHeaderBg();
+            window.addEventListener('scroll', updateHeaderBg);
+        });
+    </script>
+</body>
+</html>

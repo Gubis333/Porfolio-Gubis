@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gubis - The Devil Wears Prada</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: { extend: {} },
+        plugins: [tailwindcssAspectRatio],
+      }
+    </script>
+    <style>
+        .nav-link,
+        .to-top-link {
+            transition: color 0.2s;
+        }
+        .nav-link:hover,
+        .to-top-link:hover {
+            color: #b91c1c;
+        }
+        .nav-link.active {
+            color: #b91c1c !important;
+        }
+        .fade-slide {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1);
+        }
+        .fade-slide.fade-slide-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white min-h-screen flex flex-col font-dashiell tracking-wide overscroll-none" style="font-family: 'Dashiell Text', serif;">
+    <!-- Header -->
+    <header id="main-header" class="text-xl fixed top-0 left-0 right-0 px-3 md:px-4 py-2 bg-transparent transition-colors duration-300 z-50">
+        <nav class="flex justify-between items-center mx-auto">
+            <div class="tracking-wide text-lg hidden font-light md:block">
+                <a href="index.html" class="nav-link">GUBIS</a>
+            </div>
+            <div class="flex-1 md:flex-initial flex justify-center md:justify-end">
+                <div class="flex font-light space-x-4 md:space-x-8 text-base md:text-lg">
+                    <a href="about.html" class="nav-link">ABOUT</a>
+                    <a href="projects.html" class="nav-link">PROJECTS</a>
+                    <a href="mailto:gubis333@gmail.com" class="nav-link">CONTACT</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Prev / Next Fixed Navigation -->
+    <div class="z-50 hidden md:block">
+        <div class="fixed bottom-4 left-6">
+            <a href="orco-povero.html" class="text-base md:text-lg font-light hover:text-red-700 transition-colors">← Prev</a>
+        </div>
+        <div class="fixed bottom-4 right-6">
+            <a href="pagina_successiva.html" class="text-base md:text-lg font-light hover:text-red-700 transition-colors">Next →</a>
+        </div>
+    </div>
+
+    <!-- Masterhead video -->
+    <div class="w-full h-screen fixed top-0 left-0 z-0 pointer-events-none">
+        <img
+            class="absolute inset-0 w-full h-full object-cover"
+            src="https://res.cloudinary.com/dzwg40mls/image/upload/v1749039157/presentation_brand-religion_4_1_vkxwwy.webp"
+            alt="Masterhead Image"
+            loading="lazy"
+        />
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 pb-10 px-10 pt-10 md:px-40 relative z-10 bg-white" style="margin-top: 100vh;">
+        <!-- Testo Descrittivo -->
+        <section class="relative bg-white md:py-8">
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] md:gap-6 lg:gap-6">
+                <div class="bg-white bg-opacity-80 p-4">
+                    <h1 class="text-3xl md:text-4xl">The Devil Wears Prada</h1>
+                    <p class="text-lg md:text-xl tracking-wide italic">AI Generation</p>
+                </div>
+                <div class="mobile-block-spacing bg-white bg-opacity-80 p-4">
+                    <p class="text-base md:text-lg md:leading-tight leading-tight">
+                        This project explores the parallels between branding and religious devotion. Using AI-generated fashion imagery, it visualizes hypothetical collaborations between global brands and religious symbols, blending commercial and spiritual iconography. The goal is to provoke reflection on how brands shape identity, beliefs, and consumer behavior—much like faith does with its followers.
+                    </p>
+                    <details class="mt-4 text-sm md:text-base">
+                        <summary class="cursor-pointer select-none text-gray-500">Credits</summary>
+                        <ul class="mt-2 ml-4 text-gray-500 leading-tight" style="list-style: none;">
+                            <li><span></span>Media University Berlin</span></li>
+                            <li><span>Promting:</span> Alessandro Parente</li>
+                            <li><span>AI:</span> Midjourney</li>
+                        </ul>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- 1 Immagine -->
+        <section class="mt-4">
+            <div class="grid grid-cols-1 gap-4">
+                <div class="aspect-w-4 aspect-h-3">
+                    <img src="https://res.cloudinary.com/dzwg40mls/image/upload/v1749038846/The_Devil_wears_Prada-01_womd10.webp" alt="Project Image 1" class="object-cover fade-slide" loading="lazy">
+                </div>
+                <div class="aspect-w-4 aspect-h-3">
+                    <img src="https://res.cloudinary.com/dzwg40mls/image/upload/v1749038848/The_Devil_wears_Prada-13_iyvkyf.webp" alt="Project Image 2" class="object-cover fade-slide" loading="lazy">
+                </div>
+                <div class="aspect-w-4 aspect-h-3">
+                    <img src="https://res.cloudinary.com/dzwg40mls/image/upload/v1749038847/The_Devil_wears_Prada-08_mogcxm.webp" alt="Project Image 3" class="object-cover fade-slide" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Slider Before After -->
+        <section class="mt-4">
+            <div class="flex justify-between text-base md:text-lg mt-6 px-1">
+                <span class="italic">Before - Gucci Spring 2024 RTW</span>
+                <span class="italic">After</span>
+            </div>
+            <div id="before-after-container" class="relative w-full" style="max-width:100%; position:relative;">
+                <div id="before-after-wrapper" style="width:100%; padding-bottom:75%; position:relative;">
+                    <img id="before-img" src="https://res.cloudinary.com/dzwg40mls/image/upload/v1749038847/Before_do7u1e.webp" alt="Before" class="object-cover w-full h-full absolute inset-0 pointer-events-none" draggable="false" style="z-index:1; position:absolute; top:0; left:0; width:100%; height:100%;">
+                    <img id="after-img" src="https://res.cloudinary.com/dzwg40mls/image/upload/v1749038847/After_sbipor.webp" alt="After" class="object-cover w-full h-full absolute inset-0 pointer-events-none" draggable="false" style="z-index:2; position:absolute; top:0; left:0; width:100%; height:100%; clip-path: inset(0 0 0 50%);">
+                    <div id="slider-bar-hitbox" class="absolute top-0 bottom-0 z-20" style="left:calc(50% - 36px); width:72px; background:transparent; cursor:ew-resize;">
+                        <div id="slider-bar" class="absolute top-0 bottom-0 left-1/2 w-1 bg-red-700 cursor-ew-resize z-10 flex flex-col items-center justify-center"
+                            style="transform:translateX(-0.5px);z-index:3; position:absolute; top:0; bottom:0; width:2px; background: #ffffff; cursor:ew-resize;">
+                            <span class="absolute left-[-22px] top-1/2 -translate-y-1/2 text-2xl text-white select-none pointer-events-none">&lt;</span>
+                            <span class="absolute right-[-22px] top-1/2 -translate-y-1/2 text-2xl text-white select-none pointer-events-none">&gt;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+            // Before-After Slider
+            document.addEventListener('DOMContentLoaded', function () {
+                const container = document.getElementById('before-after-container');
+                const wrapper = document.getElementById('before-after-wrapper');
+                const afterImg = document.getElementById('after-img');
+                const sliderBar = document.getElementById('slider-bar');
+                const sliderBarHitbox = document.getElementById('slider-bar-hitbox');
+                if (!container || !afterImg || !sliderBar || !wrapper || !sliderBarHitbox) return;
+
+                let dragging = false;
+
+                function setSlider(x) {
+                    const rect = wrapper.getBoundingClientRect();
+                    let pos = (x - rect.left) / rect.width;
+                    pos = Math.max(0, Math.min(1, pos));
+                    afterImg.style.clipPath = `inset(0 0 0 ${pos * 100}%)`;
+                    // aggiorna la posizione della hitbox e della barra
+                    sliderBarHitbox.style.left = `calc(${pos * 100}% - 36px)`;
+                    sliderBar.style.left = '50%';
+                }
+
+                function onMove(e) {
+                    if (!dragging) return;
+                    let clientX;
+                    if (e.touches) {
+                        clientX = e.touches[0].clientX;
+                    } else {
+                        clientX = e.clientX;
+                    }
+                    setSlider(clientX);
+                }
+
+                // Drag su tutta la hitbox (area più larga)
+                sliderBarHitbox.addEventListener('mousedown', function(e) {
+                    dragging = true;
+                    document.body.style.userSelect = 'none';
+                });
+                window.addEventListener('mouseup', function() {
+                    dragging = false;
+                    document.body.style.userSelect = '';
+                });
+                window.addEventListener('mousemove', onMove);
+
+                // Touch events for mobile
+                sliderBarHitbox.addEventListener('touchstart', function(e) {
+                    dragging = true;
+                    document.body.style.userSelect = 'none';
+                });
+                window.addEventListener('touchend', function() {
+                    dragging = false;
+                    document.body.style.userSelect = '';
+                });
+                window.addEventListener('touchmove', onMove);
+
+                // Permetti anche il click sulla barra per spostare subito
+                wrapper.addEventListener('click', function(e) {
+                    setSlider(e.clientX);
+                });
+            });
+        </script>
+        <!-- Immagine Singola -->
+        <section class="mt-4">
+            <div class="grid grid-cols-1 gap-4">
+                <div class="aspect-w-4 aspect-h-3">
+                    <img src="https://res.cloudinary.com/dzwg40mls/image/upload/v1749038846/The_Devil_wears_Prada-10_ogmscc.webp" alt="Project Image 1" class="object-cover fade-slide" loading="lazy">
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <!-- Footer -->
+    <footer class="text-sm md:text-lg px-10 md:px-40 py-4 flex flex-col md:flex-row justify-between items-center gap-2 mt-auto bg-white z-10">
+        <p class="mt-2 md:mt-0">&copy; Gubis 2025</p>
+        <p><a href="mailto:gubis333@gmail.com" class="hover:underline">gubis333@gmail.com</a></p>
+        <p class="mt-2 md:mt-0">Milan, Italy</p>
+        <p class="mt-2 md:mt-0">
+            <a href="#" class="to-top-link">To Top ↑</a>
+        </p>
+    </footer>
+    <script>
+        // Smooth scroll to top for To Top link
+        document.querySelectorAll('.to-top-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // Animazione fade-slide per immagini
+        document.addEventListener('DOMContentLoaded', function () {
+            const images = document.querySelectorAll('img.fade-slide');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-slide-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            images.forEach(img => observer.observe(img));
+        });
+
+        // Header background trasparente on top, bianco on scroll
+        document.addEventListener('DOMContentLoaded', function () {
+            const header = document.getElementById('main-header');
+            function updateHeaderBg() {
+                if (window.scrollY > 10) {
+                    header.classList.remove('bg-transparent');
+                    header.classList.add('bg-white');
+                } else {
+                    header.classList.remove('bg-white');
+                    header.classList.add('bg-transparent');
+                }
+            }
+            updateHeaderBg();
+            window.addEventListener('scroll', updateHeaderBg);
+        });
+    </script>
+</body>
+</html>

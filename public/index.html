@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gubis - Projects</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20id%3D%22Layer_1%22%20data-name%3D%22Layer%201%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2050%2050%22%3E%3Crect%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22white%22/%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%23000%3Bstroke-width%3A0px%3B%7D%3C/style%3E%3C/defs%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M39.58%2C27.72l-2.76%2C1.25v4.72c0%2C1.27.05%2C2.63.18%2C3.94-2.67%2C2.12-6.85%2C3.04-10.9%2C3.04-9.14%2C0-15.67-5.78-15.67-16.26%2C0-9.26%2C5.86-15.07%2C16.23-15.07%2C3.68%2C0%2C6.74.52%2C9.52%2C1.84.11%2C2.25.26%2C4.49.53%2C6.72l-1.6.41c-1.29-5.18-4.66-7.18-9.25-7.18-6.35%2C0-10.46%2C4.75-10.46%2C13.28%2C0%2C9.84%2C5.12%2C14.48%2C11.11%2C14.48%2C2.16%2C0%2C4.25-.44%2C6.15-1.86v-8.05l-3.96-1.25v-.88h10.89v.88Z%22/%3E%3C/svg%3E">
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Gubis" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -124,15 +129,15 @@
 </head>
 <body class="bg-white min-h-screen flex flex-col font-dashiell tracking-wide overscroll-none" style="font-family: 'Dashiell', serif;">
     <!-- Header -->
-    <header id="main-header" class="text-xl fixed top-0 left-0 right-0 px-3 md:px-4 py-2 bg-transparent text-transparent transition-colors duration-300 z-50">
+    <header id="main-header" class="text-xl fixed top-0 left-0 right-0 px-3 md:px-4 py-2 bg-white z-50 opacity-0 transition-opacity duration-500" style="display:none;">
         <nav class="flex justify-between items-center mx-auto">
             <div class="tracking-wide text-lg hidden font-light md:block">
                 <a href="index.html" class="nav-link">GUBIS</a>
             </div>
             <div class="flex-1 md:flex-initial flex justify-center md:justify-end">
                 <div class="flex font-light space-x-4 md:space-x-8 text-base md:text-lg">
-                    <a href="about.html" class="nav-link">ABOUT</a>
                     <a href="projects.html" class="nav-link">PROJECTS</a>
+                    <a href="about.html" class="nav-link">ABOUT</a>
                     <a href="mailto:gubis333@gmail.com" class="nav-link">CONTACT</a>
                 </div>
             </div>
@@ -140,13 +145,15 @@
     </header>
     <!-- Masterhead Carousel -->
     <div class="w-full min-h-screen flex flex-col items-center justify-center px-4 bg-white relative">
-        <!-- Title at 25% of viewport height -->
-        <h1 id="masterhead-title" class="opacity-0 transition-opacity duration-700 text-2xl md:text-4xl font-normal tracking-wider uppercase text-black absolute left-1/2 -translate-x-1/2" style="top:6vh;">
-            GUBIS
-        </h1>
-        <p id="masterhead-subtitle" class="opacity-0 transition-opacity duration-700 text-base md:text-xl font-light italic tracking-wider text-black absolute left-1/2 -translate-x-1/2" style="top:10vh;">
-            design
-        </p>
+        <!-- Title + Subtitle in unico contenitore a 6vh -->
+        <div class="absolute left-1/2 -translate-x-1/2 flex flex-col items-center" style="top:6vh;">
+            <h1 id="masterhead-title" class="opacity-0 transition-opacity duration-700 text-2xl md:text-4xl font-normal tracking-wider uppercase leading-tight">
+                GUBIS
+            </h1>
+            <p id="masterhead-subtitle" class="opacity-0 transition-opacity duration-700 text-sm md:text-lg font-light italic tracking-wide leading-none">
+                design
+            </p>
+        </div>
         <!-- Carousel image centered at 50% viewport height -->
         <div class="absolute left-1/2 -translate-x-1/2" style="top:45vh; transform: translate(-50%, -50%);">
             <div id="carousel-click-area" class="opacity-0 transition-opacity duration-700 relative w-80 md:w-[32rem] max-h-[28rem] aspect-[5/7] flex items-center justify-center cursor-pointer">
@@ -167,9 +174,8 @@
             </ul>
         </nav>
     </div>
-
     <!-- Projects Grid -->
-    <main class="flex-1 px-6 md:px-4 pb-16">
+    <main class="flex-1 px-6 md:px-4 pb-8 md:pb-16">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <!-- Project 1 -->
             <div class="project-item fade-slide" style="animation-delay: 0.3s;" data-category="video">
@@ -294,13 +300,30 @@
     </main>
 
     <!-- Footer -->
-    <footer class="text-sm md:text-lg px-3 md:px-10 py-4 flex flex-col md:flex-row justify-between items-center gap-2 mt-auto">
-        <p class="mt-2 md:mt-0">&copy; Gubis 2025</p>
-        <p><a href="mailto:gubis333@gmail.com" class="hover:underline">gubis333@gmail.com</a></p>
-        <p class="mt-2 md:mt-0">Milan, Italy</p>
-        <p class="mt-2 md:mt-0">
-            <a href="#" class="to-top-link">To Top ↑</a>
-        </p>
+    <!-- Footer -->
+    <footer class="text-sm md:text-lg px-4 md:px-10 py-4 flex flex-col md:flex-row justify-between items-center gap-2 mt-auto">
+        <div class="w-full flex flex-col md:flex-row md:justify-between md:items-center md:gap-2">
+            <!-- Mobile: Prev | To Top | Next in a row, then info below with less spacing -->
+            <div class="block md:hidden w-full">
+                <div class="flex flex-row items-center justify-center mb-12">
+                    <a href="#" class="to-top-link text-sm font-light">To Top ↑</a>
+                </div>
+                <div class="flex flex-col items-center leading-tight">
+                    <p>&copy; Gubis 2025</p>
+                    <p><a href="mailto:gubis333@gmail.com" class="hover:underline">gubis333@gmail.com</a></p>
+                    <p>Milan, Italy</p>
+                </div>
+            </div>
+            <!-- Desktop: original layout with prev/next at sides -->
+            <div class="hidden md:flex w-full flex-row justify-between items-center gap-2">
+                <p class="mt-2 md:mt-0">&copy; Gubis 2025</p>
+                <p><a href="mailto:gubis333@gmail.com" class="hover:underline">gubis333@gmail.com</a></p>
+                <p class="mt-2 md:mt-0">Milan, Italy</p>
+                <p class="mt-2 md:mt-0">
+                    <a href="#" class="to-top-link">To Top ↑</a>
+                </p>
+            </div>
+        </div>
     </footer>
     <script>
         // Filter functionality
@@ -396,7 +419,7 @@
             let idx = 0;
             const img = document.getElementById('carousel-image');
             const clickArea = document.getElementById('carousel-click-area');
-            let interval = setInterval(nextImage, 2600);
+            let interval = setInterval(nextImage, 2200);
 
             function nextImage() {
                 idx = (idx + 1) % images.length;
@@ -407,7 +430,7 @@
                 clickArea.addEventListener('click', function () {
                     nextImage();
                     clearInterval(interval);
-                    interval = setInterval(nextImage, 2600);
+                    interval = setInterval(nextImage, 2200);
                 });
             }
         });
@@ -420,6 +443,41 @@
                 document.getElementById('carousel-click-area')?.classList.add('opacity-100');
                 document.getElementById('masterhead-nav')?.classList.add('opacity-100');
             }, 100);
+        });
+
+        // Mostra header solo dopo aver superato il masterhead, con dissolvenza
+        document.addEventListener('DOMContentLoaded', function () {
+            const header = document.getElementById('main-header');
+            const masterheadNav = document.getElementById('masterhead-nav');
+            let visible = false;
+            function toggleHeader() {
+                // Calcola la posizione inferiore del masterhead-nav rispetto alla pagina
+                const navRect = masterheadNav.getBoundingClientRect();
+                const navBottom = navRect.bottom + window.scrollY;
+                if (window.scrollY > navBottom - 10) {
+                    if (!visible) {
+                        header.style.display = '';
+                        void header.offsetWidth;
+                        header.classList.add('opacity-100');
+                        header.classList.remove('opacity-0');
+                        visible = true;
+                    }
+                } else {
+                    if (visible) {
+                        header.classList.remove('opacity-100');
+                        header.classList.add('opacity-0');
+                        setTimeout(() => {
+                            if (header.classList.contains('opacity-0')) {
+                                header.style.display = 'none';
+                            }
+                        }, 500);
+                        visible = false;
+                    }
+                }
+            }
+            toggleHeader();
+            window.addEventListener('scroll', toggleHeader);
+            window.addEventListener('resize', toggleHeader);
         });
     </script>
 </body>

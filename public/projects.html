@@ -35,6 +35,14 @@
         font-style: italic;
         font-display: swap;
     }
+    @font-face {
+            font-family: 'Wolpe';
+            src: url('https://res.cloudinary.com/dzwg40mls/raw/upload/v1753139198/08fd6ffb87aac63ca5d4a4da848f4b86_qki7m6.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+    }
+    
 .project-item {
     position: relative;
     overflow: hidden;
@@ -95,13 +103,13 @@
 .nav-link:hover,
 .filter-tab:hover,
 .to-top-link:hover {
-    color: #b91c1c; /* Tailwind red-700 */
+    color: #1d4ed8; /* Tailwind blue-700 */
 }
 .filter-tab.active {
-    color: #b91c1c !important;
+    color: #1d4ed8 !important;
 }
 .nav-link.active {
-    color: #b91c1c !important;
+    color: #1d4ed8 !important;
 }
 .fade-slide {
     opacity: 0;
@@ -132,7 +140,7 @@
     <!-- Header -->
     <header class="text-xl fixed top-0 left-0 right-0 px-3 md:px-4 py-2 bg-white z-50">
         <nav class="flex justify-between items-center mx-auto">
-            <div class="tracking-wide text-lg hidden font-light md:block">
+            <div class="tracking-wide text-3xl hidden md:block" style="font-family: 'Wolpe';">
                 <a href="index.html" class="nav-link">GUBIS</a>
             </div>
             <div class="flex-1 md:flex-initial flex justify-center md:justify-end">

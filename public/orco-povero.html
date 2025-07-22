@@ -32,16 +32,23 @@
             font-style: italic;
             font-display: swap;
         }
+        @font-face {
+            font-family: 'Wolpe';
+            src: url('https://res.cloudinary.com/dzwg40mls/raw/upload/v1753139198/08fd6ffb87aac63ca5d4a4da848f4b86_qki7m6.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
         .nav-link,
         .to-top-link {
             transition: color 0.2s;
         }
         .nav-link:hover,
         .to-top-link:hover {
-            color: #b91c1c;
+            color: #1d4ed8;
         }
         .nav-link.active {
-            color: #b91c1c !important;
+            color: #1d4ed8 !important;
         }
         .fade-slide {
             opacity: 0;
@@ -58,7 +65,7 @@
     <!-- Header -->
     <header id="main-header" class="text-xl fixed top-0 left-0 right-0 px-3 md:px-4 py-2 bg-transparent transition-colors duration-300 z-50">
         <nav class="flex justify-between items-center mx-auto">
-            <div class="tracking-wide text-lg hidden font-light md:block">
+            <div class="tracking-wide text-3xl hidden md:block" style="font-family: 'Wolpe';">
                 <a href="index.html" class="nav-link">GUBIS</a>
             </div>
             <div class="flex-1 md:flex-initial flex justify-center md:justify-end">
@@ -74,10 +81,10 @@
     <!-- Prev / Next Fixed Navigation -->
     <div class="z-50 hidden md:block">
         <div class="fixed bottom-4 left-6">
-            <a href="mu-design-show.html" class="text-base md:text-lg font-light hover:text-red-700 transition-colors">← Prev</a>
+            <a href="mu-design-show.html" class="text-base md:text-lg font-light hover:text-blue-700 transition-colors">← Prev</a>
         </div>
         <div class="fixed bottom-4 right-6">
-            <a href="devil-wears-prada.html" class="text-base md:text-lg font-light hover:text-red-700 transition-colors">Next →</a>
+            <a href="devil-wears-prada.html" class="text-base md:text-lg font-light hover:text-blue-700 transition-colors">Next →</a>
         </div>
     </div>
 
@@ -100,7 +107,7 @@
         <section class="relative bg-white md:py-8">
             <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] md:gap-6 lg:gap-6">
                 <div class="bg-white bg-opacity-80 p-4">
-                    <h1 class="text-3xl md:text-4xl">L'Orco e il Povero</h1>
+                    <h1 class="text-3xl md:text-4xl" style="font-family: 'Wolpe';">L'Orco e il Povero</h1>
                     <p class="text-lg md:text-xl tracking-wide italic">Illustrated Book</p>
                 </div>
                 <div class="mobile-block-spacing bg-white bg-opacity-80 p-4">
@@ -209,9 +216,9 @@
             <!-- Mobile: Prev | To Top | Next in a row, then info below with less spacing -->
             <div class="block md:hidden w-full">
                 <div class="flex flex-row items-center justify-between mb-12">
-                    <a href="mu-design-show.html" class="text-sm font-light hover:text-red-700 transition-colors">← Prev</a>
+                    <a href="mu-design-show.html" class="text-sm font-light hover:text-blue-700 transition-colors">← Prev</a>
                     <a href="#" class="to-top-link text-sm font-light">To Top ↑</a>
-                    <a href="devil-wears-prada.html" class="text-sm font-light hover:text-red-700 transition-colors">Next →</a>
+                    <a href="devil-wears-prada.html" class="text-sm font-light hover:text-blue-700 transition-colors">Next →</a>
                 </div>
                 <div class="flex flex-col items-center leading-tight">
                     <p>&copy; Gubis 2025</p>

@@ -1,102 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gubis - Portfolio</title>
-    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
-    <link rel="shortcut icon" href="favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Gubis" />
-    <link rel="manifest" href="favicon/site.webmanifest" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {},
-        },
-        plugins: [tailwindcssAspectRatio],
-      }
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/aspect-ratio@latest"></script>
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gubis - Portfolio</title>
+  <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="shortcut icon" href="favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Gubis" />
+  <link rel="manifest" href="favicon/site.webmanifest" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {} },
+      plugins: [tailwindcssAspectRatio],
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/aspect-ratio@latest"></script>
+  <style>
     @font-face {
-        font-family: 'Dashiell';
-        src: url('https://res.cloudinary.com/dzwg40mls/raw/upload/v1750186604/Dashiell-Regular_ijnmru.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
+      font-family: 'Dashiell';
+      src: url('https://res.cloudinary.com/dzwg40mls/raw/upload/v1750186604/Dashiell-Regular_ijnmru.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
     }
     @font-face {
-        font-family: 'Dashiell';
-        src: url('https://res.cloudinary.com/dzwg40mls/raw/upload/v1750186604/Dashiell-Italic_eme2ys.woff') format('woff');
-        font-weight: normal;
-        font-style: italic;
-        font-display: swap;
+      font-family: 'Dashiell';
+      src: url('https://res.cloudinary.com/dzwg40mls/raw/upload/v1750186604/Dashiell-Italic_eme2ys.woff') format('woff');
+      font-weight: normal;
+      font-style: italic;
+      font-display: swap;
     }
     @font-face {
-            font-family: 'Wolpe';
-            src: url('https://res.cloudinary.com/dzwg40mls/raw/upload/v1753139198/08fd6ffb87aac63ca5d4a4da848f4b86_qki7m6.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
+      font-family: 'Wolpe';
+      src: url('https://res.cloudinary.com/dzwg40mls/raw/upload/v1753139198/08fd6ffb87aac63ca5d4a4da848f4b86_qki7m6.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
     }
-
-.project-title {
-    pointer-events: none;
-}
-.mb-2.aspect-\[5\/4\] {
-    position: relative;
-}
-.nav-link,
-.filter-tab,
-.to-top-link {
-    transition: color 0.2s;
-}
-.nav-link:hover,
-.filter-tab:hover,
-.to-top-link:hover {
-    color: #1d4ed8; /* Tailwind blue-700 */
-}
-.filter-tab.active {
-    color: #1d4ed8 !important;
-}
-.nav-link.active {
-    color: #1d4ed8 !important;
-}
-.fade-slide {
-    opacity: 0;
-    transform: translateY(90px);
-    transition: opacity 0.6s cubic-bezier(.4,0,.2,1), transform 0.6s cubic-bezier(.4,0,.2,1);
-}
-.fade-slide.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-    </style>
+    footer {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    header {
+      padding-top: env(safe-area-inset-top);
+    }
+    .nav-link {
+      transition: color 0.2s;
+    }
+    .nav-link:hover {
+      color: #1d4ed8; /* Tailwind blue-700 */
+    }
+  </style>
 </head>
 
-<body class="relative flex flex-col items-center justify-between min-h-screen text-black overscroll-none">
-
-  <!-- Header -->
-  <header class="w-full text-center mt-6" style="font-family: 'Wolpe'">
+<body class="relative min-h-screen text-black">
+  <!-- Header fisso -->
+  <header class="fixed top-0 left-0 w-full text-center z-10 mt-6" style="font-family: 'Wolpe'">
     <h1 class="text-3xl md:text-5xl tracking-wide">ALESSANDRO PARENTE</h1>
     <p class="text-3xl md:text-5xl tracking-wide">aka “<span class="text-blue-700">GUBIS</span>”</p>
   </header>
 
-  <!-- Center links -->
-  <main class="flex flex-col md:flex-row gap-8 lg:gap-60 md:gap-40 text-lg md:text-xl tracking-wide font-extralight leading-tight" style="font-family: Dashiell;">
-    <a href="projects.html" class="nav-link">Projects</br><span class="italic">/ selected ones</span></a>
-    <a href="about.html" class="nav-link">About</br><span class="italic">/ bio & contacts</span></a>
-    <a href="mailto:gubis333@gmail.com" class="nav-link">Contact</br><span class="italic">/ by email</span></a>
+  <!-- Links centrali -->
+  <main class="flex flex-col md:flex-row gap-8 lg:gap-60 md:gap-40 text-lg md:text-xl tracking-wide font-extralight leading-tight items-center justify-center fixed inset-0 z-10" style="font-family: Dashiell;">
+    <a href="projects.html" class="nav-link text-center">Projects<br><span class="italic">/ selected ones</span></a>
+    <a href="about.html" class="nav-link text-center">About<br><span class="italic">/ bio & contacts</span></a>
+    <a href="mailto:gubis333@gmail.com" class="nav-link text-center">Contact<br><span class="italic">/ by email</span></a>
   </main>
 
-  <!-- Footer -->
-  <footer class="w-full text-center mb-6" style="font-family: 'Wolpe'">
+  <!-- Footer fisso -->
+  <footer class="fixed bottom-0 left-0 w-full text-center z-10 mb-6" style="font-family: 'Wolpe'">
     <p class="text-3xl md:text-5xl tracking-wide">Handmade Website</p>
     <p class="text-3xl md:text-5xl tracking-wide"><span class="text-blue-700">DESIGN</span> — PORTFOLIO</p>
   </footer>
-
 </body>
 </html>

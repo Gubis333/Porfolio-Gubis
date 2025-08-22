@@ -63,16 +63,16 @@
 </head>
 <body class="bg-white min-h-screen flex flex-col font-dashiell tracking-wide overscroll-none" style="font-family: 'Dashiell', serif;">
     <!-- Header -->
-    <header id="main-header" class="text-xl fixed top-0 left-0 right-0 px-3 md:px-4 py-2 bg-transparent transition-colors duration-300 z-50">
+    <header id="main-header" class="text-xl fixed top-0 left-0 right-0 px-3 py-3 md:py-4 md:px-16 bg-transparent transition-colors duration-300 z-50">
         <nav class="flex justify-between items-center mx-auto">
-            <div class="tracking-wide text-3xl hidden md:block" style="font-family: 'Wolpe';">
-                <a href="index.html" class="nav-link">GUBIS</a>
+            <div class="tracking-wide text-2xl hidden md:block" style="font-family: 'Wolpe';">
+                <a href="projects.html" class="nav-link">GUBIS</a>
             </div>
-            <div class="flex-1 md:flex-initial flex justify-center md:justify-end">
-                <div class="flex font-light space-x-4 md:space-x-8 text-base md:text-lg">
-                    <a href="projects.html" class="nav-link">PROJECTS</a>
-                    <a href="about.html" class="nav-link">ABOUT</a>
-                    <a href="mailto:gubis333@gmail.com" class="nav-link">CONTACT</a>
+            <div class="flex-auto md:flex-initial flex justify-center md:justify-end">
+                <div class="flex font-normal space-x-10 md:space-x-14 text-lg md:text-lg">
+                    <a href="projects.html" class="nav-link">Portfolio</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="mailto:gubis333@gmail.com" class="nav-link">Contact</a>
                 </div>
             </div>
         </nav>
@@ -88,8 +88,9 @@
         </div>
     </div>
 
-    <!-- Masterhead video -->
-    <div class="w-full h-screen fixed top-0 left-0 z-0 pointer-events-none">
+    <!-- Masterhead Video -->
+    <!-- desktop/tablet: full-screen masterhead video (hidden on small) -->
+    <div class="hidden md:block w-full h-screen fixed top-0 left-0 z-0 pointer-events-none">
         <video
             class="absolute inset-0 w-full h-full object-cover"
             src="https://res.cloudinary.com/dzwg40mls/video/upload/v1749046859/VideoTeaser_NOTITLE_L_orco_e_il_povero_ywmzga.mp4"
@@ -102,13 +103,33 @@
     </div>
 
     <!-- Main Content -->
-    <main class="flex-1 pb-4 md:pb-10 px-4 pt-10 md:px-40 relative z-10 bg-white" style="margin-top: 100vh;">
+    <main class="flex-1 px-4 pt-10 pb-4 md:pb-10 lg:px-40 md:px-24 relative z-10 bg-white rounded-t-3xl md:mt-[100vh]">
+        <!-- Pulsante Back -->
+        <div class="mt-4 p-3">
+            <a href="projects.html" class="text-base md:text-xl font-light text-gray-400 hover:text-black transition-colors">← Back</a>
+        </div>
+
+        <!-- mobile: inline video subito sotto il pulsante Back, con angoli arrotondati -->
+        <div class="mt-2 md:hidden">
+            <div class="rounded-2xl overflow-hidden w-full" style="position:relative; padding-bottom:56.25%;">
+                <video
+                    class="absolute inset-0 w-full h-full object-cover"
+                    src="https://res.cloudinary.com/dzwg40mls/video/upload/v1749046859/VideoTeaser_NOTITLE_L_orco_e_il_povero_ywmzga.mp4"
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    preload="auto"
+                ></video>
+            </div>
+        </div>
+
         <!-- Testo Descrittivo -->
-        <section class="relative bg-white md:py-8">
+        <section class="relative bg-white py-4 md:py-10">
             <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] md:gap-6 lg:gap-6">
                 <div class="bg-white bg-opacity-80 p-4">
                     <h1 class="text-3xl md:text-4xl" style="font-family: 'Wolpe';">L'Orco e il Povero</h1>
-                    <p class="text-lg md:text-xl tracking-wide italic">Illustrated Book</p>
+                    <p class="pt-1 text-lg md:text-2xl tracking-wide italic">Illustrated Book</p>
                 </div>
                 <div class="mobile-block-spacing bg-white bg-opacity-80 p-4">
                     <p class="text-base md:text-lg md:leading-tight leading-tight">

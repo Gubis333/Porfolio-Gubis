@@ -43,54 +43,33 @@
             font-display: swap;
     }
     
+.project-hover {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* transizione solo sull'immagine interna */
+    transition: transform 0.45s cubic-bezier(.4,0,.2,1), filter 0.45s cubic-bezier(.4,0,.2,1);
+    will-change: transform, filter;
+    transform-origin: center center;
+    /* assicurati che l'immagine resti dentro il contenitore arrotondato */
+    backface-visibility: hidden;
+}
+
+/* lo hover scala solo l'immagine interna; il bordo del contenitore rimane invariato */
+.project-item:hover .project-hover {
+    transform: scale(1.06);
+    filter: brightness(1.15);
+}
+
+.mb-2.aspect-\[5\/4\]:hover .project-hover {
+    transform: scale(1.045);
+}
+
 .project-item {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-}
-.project-img-main,
-.project-img-hover {
-    transition: opacity 0.3s ease;
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-.project-img-main {
-    opacity: 1;
-    z-index: 1;
-    position: absolute;
-}
-.project-img-hover {
-    opacity: 0;
-    z-index: 2;
-    position: absolute;
-}
-.project-item:hover .project-img-main {
-    opacity: 0;
-}
-.project-item:hover .project-img-hover {
-    opacity: 1;
-}
-.project-title {
-    opacity: 1;
-    transition: none;
-    position: relative;
-    z-index: 3;
-}
-.project-item:hover .project-title {
-    opacity: 1;
-    transition: none;
-}
-.project-item .project-title.fadeout {
-    /* Disabilita completamente la dissolvenza */
-    opacity: 1;
-    transition: none;
-}
-.project-title {
-    pointer-events: none;
 }
 .mb-2.aspect-\[5\/4\] {
     position: relative;
@@ -100,16 +79,21 @@
 .to-top-link {
     transition: color 0.2s;
 }
-.nav-link:hover,
+
 .filter-tab:hover,
 .to-top-link:hover {
-    color: #1d4ed8; /* Tailwind blue-700 */
+    color: #000;
 }
 .filter-tab.active {
-    color: #1d4ed8 !important;
+    color: #000 !important;
+    border-color: #000 !important;
 }
+.filter-tab:hover {
+    border-color: #000;
+}
+.nav-link:hover,
 .nav-link.active {
-    color: #1d4ed8 !important;
+    color: #9ca3af !important;
 }
 .fade-slide {
     opacity: 0;
@@ -130,176 +114,198 @@
     .filter-tabs-container::-webkit-scrollbar {
         display: none;
     }
-    .filter-tabs-flex {
-        justify-content: center !important;
+}
+.mb-2.aspect-\[5\/4\] {
+    position: relative;
+}
+.nav-link,
+.filter-tab,
+.to-top-link {
+    transition: color 0.2s;
+}
+.nav-link:hover,
+.filter-tab:hover,
+.to-top-link:hover {
+    color: #000;
+}
+.filter-tab.active {
+    color: #000 !important;
+    border-color: #000 !important;
+}
+.filter-tab:hover {
+    border-color: #000;
+}
+.nav-link.active {
+    color: #9ca3af !important;
+}
+.fade-slide {
+    opacity: 0;
+    transform: translateY(90px);
+    transition: opacity 0.6s cubic-bezier(.4,0,.2,1), transform 0.6s cubic-bezier(.4,0,.2,1);
+}
+.fade-slide.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+@media (max-width: 768px) {
+    .filter-tabs-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    .filter-tabs-container::-webkit-scrollbar {
+        display: none;
     }
 }
     </style>
 </head>
 <body class="bg-white min-h-screen flex flex-col font-dashiell tracking-wide overscroll-none" style="font-family: 'Dashiell', serif;">
     <!-- Header -->
-    <header class="text-xl fixed top-0 left-0 right-0 px-3 md:px-4 py-2 bg-white z-50">
+    <header class=" fixed top-0 left-0 right-0 px-3 py-3 md:py-4 md:px-16 bg-white z-50 border-b" style="border-bottom: 0.25px solid #000;">
         <nav class="flex justify-between items-center mx-auto">
-            <div class="tracking-wide text-3xl hidden md:block" style="font-family: 'Wolpe';">
-                <a href="index.html" class="nav-link">GUBIS</a>
+            <div class="tracking-wide text-2xl hidden md:block" style="font-family: 'Wolpe';">
+                <a href="projects.html" class="nav-link">GUBIS</a>
             </div>
-            <div class="flex-1 md:flex-initial flex justify-center md:justify-end">
-                <div class="flex font-light space-x-4 md:space-x-8 text-base md:text-lg">
-                    <a href="projects.html" class="nav-link active">PROJECTS</a>
-                    <a href="about.html" class="nav-link">ABOUT</a>
-                    <a href="mailto:gubis333@gmail.com" class="nav-link">CONTACT</a>
+            <div class="flex-auto md:flex-initial flex justify-center md:justify-end">
+                <div class="flex font-normal space-x-10 md:space-x-14 text-lg md:text-lg">
+                    <a href="projects.html" class="nav-link active">Portfolio</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="mailto:gubis333@gmail.com" class="nav-link">Contact</a>
                 </div>
             </div>
         </nav>
     </header>
 
+    <!-- Titolo -->
+    <div class="px-6 md:px-16 mt-36 md:mt-60">
+        <h1 class="text-4xl md:text-6xl font-light" style="font-family: 'Wolpe'; text-transform: uppercase;">Selected Projects</h1>
+    </div>
+
     <!-- Filter Tabs -->
-    <div class="px-4 md:px-4 mt-16 md:mt-18 py-6 md:py-8">
+    <div class="px-6 md:px-16 py-6 md:py-8">
         <div class="filter-tabs-container">
-            <div class="filter-tabs-flex flex md:flex-wrap justify-center gap-4 md:gap-8 text-sm md:text-base tracking-wider uppercase min-w-min md:min-w-0 px-1">
-                <button class="filter-tab active whitespace-nowrap" data-filter="all">All</button>
-                <button class="filter-tab whitespace-nowrap" data-filter="branding">Branding</button>
-                <button class="filter-tab whitespace-nowrap" data-filter="illustration">Illustration</button>
-                <button class="filter-tab whitespace-nowrap" data-filter="video">Video</button>
-                <button class="filter-tab whitespace-nowrap" data-filter="exhibitions">Exhibition</button>
-                <button class="filter-tab whitespace-nowrap" data-filter="study">Study</button>
+            <div class="flex flex-wrap gap-2 md:gap-4 text-sm md:text-base tracking-wider text-gray-400 min-w-min md:min-w-0 px-1">
+                <button class="filter-tab active whitespace-nowrap py-2 px-8 border border-gray-400 rounded-xl" data-filter="all">All</button>
+                <button class="filter-tab whitespace-nowrap py-2 px-8 border border-gray-400 rounded-xl" data-filter="branding">Branding</button>
+                <button class="filter-tab whitespace-nowrap py-2 px-8 border border-gray-400 rounded-xl" data-filter="illustration">Illustration</button>
+                <button class="filter-tab whitespace-nowrap py-2 px-8 border border-gray-400 rounded-xl" data-filter="video">Video</button>
+                <button class="filter-tab whitespace-nowrap py-2 px-8 border border-gray-400 rounded-xl" data-filter="exhibitions">Exhibition</button>
+                <button class="filter-tab whitespace-nowrap py-2 px-8 border border-gray-400 rounded-xl" data-filter="study">Study</button>
             </div>
         </div>
     </div>
 
     <!-- Projects Grid -->
-    <main class="flex-1 px-4 md:px-4 pb-4 md:pb-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-4 md:gap-y-6">
+    <main class="flex-1 px-6 md:px-16 pb-4 md:pb-16 mt-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-x-4 md:gap-y-4">
             <!-- Project 1 -->
             <div class="project-item mb-4 fade-slide" style="animation-delay: 0.3s;" data-category="video">
                 <a href="narciso.html" class="block">
-                    <div class="mb-2 aspect-[5/4]">
+                    <!-- aggiunto rounded-2xl e overflow-hidden al contenitore -->
+                    <div class="mb-2 aspect-[5/4] rounded-2xl overflow-hidden">
                         <img 
                             src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748857937/Narciso_Thumbnail_lmy1up.webp" 
                             alt="Narciso"
-                            class="project-img-main object-cover w-full h-full"
-                            loading="lazy"
-                        >
-                        <img 
-                            src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748857937/Foto_Narciso_Thumbnail_kh7djv.webp"
-                            alt="Narciso Hover"
-                            class="project-img-hover object-cover w-full h-full"
+                            class="project-hover object-cover w-full h-full"
                             loading="lazy"
                         >
                     </div>
-                    <h3 class="project-title text-center text-sm sm:text-base italic transition-opacity duration-300">Narciso - Short Movie</h3>
+                    <h3 class="project-title text-base lg:text-lg py-1 px-3">
+                        Narciso <span class="text-gray-400 ml-2 lg:ml-4">Short Movie - 2022</span>
+                    </h3>
                 </a>
             </div>
 
             <!-- Project 2 -->
             <div class="project-item mb-4 fade-slide" style="animation-delay: 0.4s;" data-category="exhibitions branding">
                 <a href="mu-design-show.html" class="block">
-                    <div class="mb-2 aspect-[5/4]">
+                    <div class="mb-2 aspect-[5/4] rounded-2xl overflow-hidden">
                         <img 
                             src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748857938/MU_Show_Thumbnail_sqpi0r.webp" 
                             alt="MU Design Show"
-                            class="project-img-main object-cover w-full h-full"
-                            loading="lazy"
-                        >
-                        <img 
-                            src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748857937/Billboard_MU_Design_Thumbnail_ftef1s.webp"
-                            alt="MU Design Show Hover"
-                            class="project-img-hover object-cover w-full h-full"
+                            class="project-hover object-cover w-full h-full"
                             loading="lazy"
                         >
                     </div>
-                    <h3 class="project-title text-center text-sm sm:text-base italic transition-opacity duration-300">MU Design Show - Design System</h3>
+                    <h3 class="project-title text-base lg:text-lg py-1 px-3">
+                        MU Design Show <span class="text-gray-400 ml-2 lg:ml-4">Design System - 2022</span>
+                    </h3>
                 </a>
             </div>
 
             <!-- Project 3 -->
             <div class="project-item mb-4 fade-slide" style="animation-delay: 0.5s;" data-category="illustration">
                 <a href="orco-povero.html" class="block">
-                    <div class="mb-2 aspect-[5/4]">
+                    <div class="mb-2 aspect-[5/4] rounded-2xl overflow-hidden">
                         <img 
                             src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748857937/Orco_Povero_Thumbnail_g0huqr.webp" 
                             alt="L'Orco e il Povero"
-                            class="project-img-main object-cover w-full h-full"
-                            loading="lazy"
-                        >
-                        <img 
-                            src="https://res.cloudinary.com/dzwg40mls/image/upload/v1749298121/ORCOEPOVERO-35-2_suuzjr.webp"
-                            alt="L'Orco e il Povero Hover"
-                            class="project-img-hover object-cover w-full h-full"
+                            class="project-hover object-cover w-full h-full"
                             loading="lazy"
                         >
                     </div>
-                    <h3 class="project-title text-center text-sm sm:text-base italic transition-opacity duration-300">L'Orco e il Povero - Illustrated Book</h3>
+                    <h3 class="project-title text-base lg:text-lg py-1 px-3">
+                        L'Orco e il Povero <span class="text-gray-400 ml-2 lg:ml-4">Illustrated Book - 2022</span>
+                    </h3>
                 </a>
             </div>
 
             <!-- Project 4 -->
             <div class="project-item mb-4 fade-slide" style="animation-delay: 0.6s;" data-category="study">
                 <a href="devil-wears-prada.html" class="block">
-                    <div class="mb-2 aspect-[5/4]">
+                    <div class="mb-2 aspect-[5/4] rounded-2xl overflow-hidden">
                         <img 
                             src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748857937/Gucci_AI_Thumbnail_fpfkjx.webp" 
                             alt="The Devil Wears Prada"
-                            class="project-img-main object-cover w-full h-full"
-                            loading="lazy"
-                        >
-                        <img 
-                            src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748857937/The_Devil_Wears_Prada_Thumbnail_u4vwuw.webp"
-                            alt="The Devil Wears Prada Hover"
-                            class="project-img-hover object-cover w-full h-full"
+                            class="project-hover object-cover w-full h-full"
                             loading="lazy"
                         >
                     </div>
-                    <h3 class="project-title text-center text-sm sm:text-base italic transition-opacity duration-300">The Devil Wears Prada - AI Project</h3>
+                    <h3 class="project-title text-base lg:text-lg py-1 px-3">
+                        The Devil Wears Prada <span class="text-gray-400 ml-2 lg:ml-4">AI Project - 2022</span>
+                    </h3>
                 </a>
             </div>
 
             <!-- Project 5 -->
             <div class="project-item mb-4 fade-slide" style="animation-delay: 0.7s;" data-category="study">
                 <a class="block">
-                    <div class="mb-2 aspect-[5/4]">
+                    <div class="mb-2 aspect-[5/4] rounded-2xl overflow-hidden">
                         <img 
                             src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748858093/Personal_Project_Thumbnail_skssxo.webp" 
                             alt="Personal Project"
-                            class="project-img-main object-cover w-full h-full"
-                            loading="lazy"
-                        >
-                        <img 
-                            src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748858093/Personal_Project_Thumbnail_skssxo.webp"
-                            alt="Personal Project Hover"
-                            class="project-img-hover object-cover w-full h-full"
+                            class="project-hover object-cover w-full h-full"
                             loading="lazy"
                         >
                     </div>
-                    <h3 class="project-title text-center text-sm sm:text-base italic transition-opacity duration-300">Experiments & Personal Project</h3>
+                    <h3 class="project-title text-base lg:text-lg py-1 px-3">
+                        Personal Projects <span class="text-gray-400 ml-2 lg:ml-4">WIP</span>
+                    </h3>
                 </a>
             </div>
 
             <!-- Project 6 -->
             <div class="project-item mb-4 fade-slide" style="animation-delay: 0.8s;" data-category="exhibitions">
                 <a class="block">
-                    <div class="mb-2 aspect-[5/4]">
+                    <div class="mb-2 aspect-[5/4] rounded-2xl overflow-hidden">
                         <img 
                             src="https://res.cloudinary.com/dzwg40mls/image/upload/v1750086718/taptap_xcpv0q.webp" 
                             alt="Gallery"
-                            class="project-img-main object-cover w-full h-full"
-                            loading="lazy"
-                        >
-                        <img 
-                            src="https://res.cloudinary.com/dzwg40mls/image/upload/v1750086564/_MG_7337_wji5lp.webp"
-                            alt="Gallery Hover"
-                            class="project-img-hover object-cover w-full h-full"
+                            class="project-hover object-cover w-full h-full"
                             loading="lazy"
                         >
                     </div>
-                    <h3 class="project-title text-center text-sm sm:text-base italic transition-opacity duration-300">Habit System - wip...</h3>
+                    <h3 class="project-title text-base lg:text-lg py-1 px-3">
+                        Habit System <span class="text-gray-400 ml-2 lg:ml-4">Speculative Design - WIP</span>
+                    </h3>
                 </a>
             </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="text-sm md:text-lg px-4 md:px-10 py-4 flex flex-col md:flex-row justify-between items-center gap-2 mt-auto">
+    <footer class="text-sm md:text-xl px-4 md:px-10 py-4 flex flex-col md:flex-row justify-between items-center gap-2 mt-auto">
         <div class="w-full flex flex-col md:flex-row md:justify-between md:items-center md:gap-2">
             <!-- Mobile: Prev | To Top | Next in a row, then info below with less spacing -->
             <div class="block md:hidden w-full">
@@ -328,6 +334,9 @@
         const filterTabs = document.querySelectorAll('.filter-tab');
         const projectItems = document.querySelectorAll('.project-item');
 
+        // array per tracciare timeout dell'animazione (così possiamo cancellarli se necessario)
+        let filterTimeouts = [];
+
         filterTabs.forEach(tab => {
             tab.addEventListener('click', () => {
                 // Remove active class from all tabs
@@ -337,32 +346,36 @@
 
                 const filter = tab.getAttribute('data-filter');
 
+                // pulisci timeout precedenti
+                filterTimeouts.forEach(id => clearTimeout(id));
+                filterTimeouts = [];
+
+                // costruisci lista di elementi visibili in base al filtro
+                const visibleItems = [];
                 projectItems.forEach(item => {
-                    // Supporta più categorie: cerca la categoria come parola intera
                     const categories = (item.getAttribute('data-category') || '').split(' ');
-                    if (filter === 'all' || categories.includes(filter)) {
-                        item.style.display = 'block';
+                    const matches = (filter === 'all' || categories.includes(filter));
+                    if (matches) {
+                        visibleItems.push(item);
                     } else {
+                        // nascondi subito gli elementi non corrispondenti
+                        item.classList.remove('visible');
                         item.style.display = 'none';
                     }
                 });
-            });
-        });
 
-        // Fade out lento della scritta quando termina hover
-        document.querySelectorAll('.project-item').forEach(item => {
-            let timeout;
-            item.addEventListener('mouseleave', () => {
-                const title = item.querySelector('.project-title');
-                title.classList.add('fadeout');
-                clearTimeout(timeout);
-                timeout = setTimeout(() => {
-                    title.classList.remove('fadeout');
-                }, 1000); // aumentato a 1s per corrispondere al CSS
-            });
-            item.addEventListener('mouseenter', () => {
-                const title = item.querySelector('.project-title');
-                title.classList.remove('fadeout');
+                // mostra e ri-animare gli elementi visibili con uno stagger
+                visibleItems.forEach((item, i) => {
+                    item.style.display = 'block';
+                    // assicura che parta dallo stato iniziale (senza visible)
+                    item.classList.remove('visible');
+                    // forzare reflow per rendere affidabile la transizione successiva
+                    void item.offsetWidth;
+                    const timeoutId = setTimeout(() => {
+                        item.classList.add('visible');
+                    }, 150 + i * 120);
+                    filterTimeouts.push(timeoutId);
+                });
             });
         });
 

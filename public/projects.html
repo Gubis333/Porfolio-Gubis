@@ -170,7 +170,7 @@
             <div class="flex-auto md:flex-initial flex justify-center md:justify-end">
                 <div class="flex font-normal space-x-10 md:space-x-14 text-lg md:text-lg">
                     <a href="projects.html" class="nav-link active">Portfolio</a>
-                    <a href="about.html" class="nav-link">About</a>
+                    <a href="about.html" class="nav-link">About Me</a>
                     <a href="mailto:gubis333@gmail.com" class="nav-link">Contact</a>
                 </div>
             </div>
@@ -212,7 +212,7 @@
                         >
                     </div>
                     <h3 class="project-title text-base lg:text-lg py-1 px-3">
-                        Narciso <span class="text-gray-400 ml-2 lg:ml-4">Short Movie - 2022</span>
+                        Narciso <span class="text-gray-400 ml-2 lg:ml-4">Short Movie <span class="text-gray-400 hidden md:inline">- 2022</span></span>
                     </h3>
                 </a>
             </div>
@@ -229,7 +229,7 @@
                         >
                     </div>
                     <h3 class="project-title text-base lg:text-lg py-1 px-3">
-                        MU Design Show <span class="text-gray-400 ml-2 lg:ml-4">Design System - 2022</span>
+                        MU Design Show <span class="text-gray-400 ml-2 lg:ml-4">Design System <span class="text-gray-400 hidden md:inline">- 2022</span></span>
                     </h3>
                 </a>
             </div>
@@ -246,7 +246,7 @@
                         >
                     </div>
                     <h3 class="project-title text-base lg:text-lg py-1 px-3">
-                        L'Orco e il Povero <span class="text-gray-400 ml-2 lg:ml-4">Illustrated Book - 2022</span>
+                        L'Orco e il Povero <span class="text-gray-400 ml-2 lg:ml-4">Illustrated Book <span class="text-gray-400 hidden md:inline">- 2022</span></span>
                     </h3>
                 </a>
             </div>
@@ -263,7 +263,7 @@
                         >
                     </div>
                     <h3 class="project-title text-base lg:text-lg py-1 px-3">
-                        The Devil Wears Prada <span class="text-gray-400 ml-2 lg:ml-4">AI Project - 2022</span>
+                        The Devil Wears Prada <span class="text-gray-400 ml-2 lg:ml-4">AI Project <span class="text-gray-400 hidden md:inline">- 2022</span></span>
                     </h3>
                 </a>
             </div>
@@ -297,35 +297,48 @@
                         >
                     </div>
                     <h3 class="project-title text-base lg:text-lg py-1 px-3">
-                        Habit System <span class="text-gray-400 ml-2 lg:ml-4">Speculative Design - WIP</span>
+                        Habit System <span class="text-gray-400 ml-2 lg:ml-4">Speculative Design <span class="text-gray-400 hidden md:inline">- WIP</span></span>
                     </h3>
                 </a>
             </div>
         </div>
+
+        <!-- Prev / Next Button Navigation -->
+        <div class="justify-between flex py-16 md:py-24 px-2 md:px-8">
+                <a href="pagina_precedente.html" class="invisible filter-tab text-base md:text-lg filter-tab active whitespace-nowrap py-2 px-4 md:px-8 border border-gray-400 text-gray-400 rounded-xl">← Prev</a>
+                <a href="#" class="to-top-link text-base md:text-lg py-2 px-4 md:px-8 text-gray-400">To Top ↑</a>
+                <a href="mu-design-show.html" class="invisible filter-tab text-base md:text-lg filter-tab active whitespace-nowrap py-2 px-4 md:px-8 border border-gray-400 text-gray-400 rounded-xl">Next →</a>
+        </div>
     </main>
 
     <!-- Footer -->
-    <footer class="text-sm md:text-xl px-4 md:px-10 py-4 flex flex-col md:flex-row justify-between items-center gap-2 mt-auto">
-        <div class="w-full flex flex-col md:flex-row md:justify-between md:items-center md:gap-2">
-            <!-- Mobile: Prev | To Top | Next in a row, then info below with less spacing -->
+    <footer class="text-base md:text-base px-6 py-6 md:py-10 lg:px-40 md:px-24 bg-gray-200 z-10 text-gray-400 md:-mt-8 rounded-t-3xl">
+        <div>
+            <!-- Mobile -->
             <div class="block md:hidden w-full">
-                <div class="flex flex-row items-center justify-center mb-12">
-                    <a href="#" class="to-top-link text-sm font-light">To Top ↑</a>
-                </div>
-                <div class="flex flex-col items-center leading-tight">
-                    <p>&copy; Gubis 2025</p>
-                    <p><a href="mailto:gubis333@gmail.com" class="hover:underline">gubis333@gmail.com</a></p>
-                    <p>Milan, Italy</p>
+                <div class="flex-col leading-tight ">
+                    <div>
+                        <p class="text-gray-500 py-1"> Contacts: </p>
+                        <p><a href="mailto:gubis333@gmail.com" class="filter-tab">Mail ↗</a></p>
+                        <p><a href="https://www.linkedin.com/in/alessandro-parente-01a177259/" target="_blank" class="filter-tab">LinkedIn ↗</a></p>
+                    </div>
+                    <div class="mt-6 text-sm">
+                        <p>&copy; 2025 Gubis, all rights are reserved</p>
+                    </div>
                 </div>
             </div>
-            <!-- Desktop: original layout with prev/next at sides -->
-            <div class="hidden md:flex w-full flex-row justify-between items-center gap-2">
-                <p class="mt-2 md:mt-0">&copy; Gubis 2025</p>
-                <p><a href="mailto:gubis333@gmail.com" class="hover:underline">gubis333@gmail.com</a></p>
-                <p class="mt-2 md:mt-0">Milan, Italy</p>
-                <p class="mt-2 md:mt-0">
-                    <a href="#" class="to-top-link">To Top ↑</a>
-                </p>
+            <!-- Desktop -->
+            <div class="hidden md:flex w-full flex-row justify-between items-start leading-snug">
+                <div class="text-sm leading-tight">
+                    <p class="text-xl pb-2" style="font-family: 'Wolpe';">GUBIS</p>
+                    <p>&copy; 2025 Gubis</p>
+                    <p>All rights reserved Milan, Italy</p>
+                </div>
+                <div>
+                    <p class="text-gray-600 py-1"> Contacts: </p>
+                    <p><a href="mailto:gubis333@gmail.com" class="filter-tab">Mail ↗</a></p>
+                    <p><a href="https://www.linkedin.com/in/alessandro-parente-01a177259/" target="_blank" class="filter-tab">LinkedIn ↗</a></p>
+                </div>
             </div>
         </div>
     </footer>

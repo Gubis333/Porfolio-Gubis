@@ -39,16 +39,22 @@
             font-style: normal;
             font-display: swap;
         }
+        
         .nav-link,
+        .filter-tab,
         .to-top-link {
             transition: color 0.2s;
         }
-        .nav-link:hover,
+        .nav-link:hover{
+            color: #9ca3af;
+        }
+        .filter-tab:hover,
         .to-top-link:hover {
-            color: #1d4ed8;
+            color: #000;
+            border-color: #000;
         }
         .nav-link.active {
-            color: #1d4ed8 !important;
+            color: #9ca3af !important;
         }
         .fade-slide {
             opacity: 0;
@@ -63,7 +69,7 @@
 </head>
 <body class="bg-white min-h-screen flex flex-col font-dashiell tracking-wide overscroll-none" style="font-family: 'Dashiell', serif;">
     <!-- Header -->
-    <header id="main-header" class="text-xl fixed top-0 left-0 right-0 px-3 py-3 md:py-4 md:px-16 bg-transparent transition-colors duration-300 z-50">
+    <header id="main-header" class="text-xl fixed top-0 left-0 right-0 px-3 py-3 md:py-4 md:px-16 bg-transparent transition-colors duration-300 z-50 border-b" style="border-bottom: 0.25px solid #000;">
         <nav class="flex justify-between items-center mx-auto">
             <div class="tracking-wide text-2xl hidden md:block" style="font-family: 'Wolpe';">
                 <a href="projects.html" class="nav-link">GUBIS</a>
@@ -71,22 +77,12 @@
             <div class="flex-auto md:flex-initial flex justify-center md:justify-end">
                 <div class="flex font-normal space-x-10 md:space-x-14 text-lg md:text-lg">
                     <a href="projects.html" class="nav-link">Portfolio</a>
-                    <a href="about.html" class="nav-link">About</a>
+                    <a href="about.html" class="nav-link">About Me</a>
                     <a href="mailto:gubis333@gmail.com" class="nav-link">Contact</a>
                 </div>
             </div>
         </nav>
     </header>
-
-    <!-- Prev / Next Fixed Navigation -->
-    <div class="z-50 hidden md:block">
-        <div class="fixed bottom-4 left-6">
-            <a href="narciso.html" class="text-base md:text-lg font-light hover:text-blue-700 transition-colors">← Prev</a>
-        </div>
-        <div class="fixed bottom-4 right-6">
-            <a href="orco-povero.html" class="text-base md:text-lg font-light hover:text-blue-700 transition-colors">Next →</a>
-        </div>
-    </div>
 
     <!-- Masterhead Carousel -->
     <!-- desktop/tablet: full-screen masterhead carousel (hidden on small) -->
@@ -236,31 +232,42 @@
                 </div>
             </div>
         </section>
+
+        <!-- Prev / Next Button Navigation -->
+        <div class="justify-between flex py-16 md:py-24 px-2 md:px-8">
+                <a href="narciso.html" class="filter-tab text-base md:text-lg filter-tab active whitespace-nowrap py-2 px-4 md:px-8 border border-gray-400 text-gray-400 rounded-xl">← Prev</a>
+                <a href="#" class="to-top-link text-base md:text-lg py-2 px-4 md:px-8 text-gray-400 hidden md:inline">To Top ↑</a>
+                <a href="orco-povero.html" class="filter-tab text-base md:text-lg filter-tab active whitespace-nowrap py-2 px-4 md:px-8 border border-gray-400 text-gray-400 rounded-xl">Next →</a>
+        </div>
     </main>
     <!-- Footer -->
-    <footer class="text-sm md:text-lg px-4 md:px-40 py-4 flex flex-col md:flex-row justify-between items-center gap-2 mt-auto bg-white z-10">
-        <div class="w-full flex flex-col md:flex-row md:justify-between md:items-center md:gap-2">
-            <!-- Mobile: Prev | To Top | Next in a row, then info below with less spacing -->
+    <footer class="text-base md:text-base px-6 py-6 md:py-10 lg:px-40 md:px-24 bg-gray-200 z-10 text-gray-400 md:-mt-8 rounded-t-3xl">
+        <div>
+            <!-- Mobile -->
             <div class="block md:hidden w-full">
-                <div class="flex flex-row items-center justify-between mb-12">
-                    <a href="narciso.html" class="text-sm font-light hover:text-blue-700 transition-colors">← Prev</a>
-                    <a href="#" class="to-top-link text-sm font-light">To Top ↑</a>
-                    <a href="orco-povero.html" class="text-sm font-light hover:text-blue-700 transition-colors">Next →</a>
-                </div>
-                <div class="flex flex-col items-center leading-tight">
-                    <p>&copy; Gubis 2025</p>
-                    <p><a href="mailto:gubis333@gmail.com" class="hover:underline">gubis333@gmail.com</a></p>
-                    <p>Milan, Italy</p>
+                <div class="flex-col leading-tight ">
+                    <div>
+                        <p class="text-gray-500 py-1"> Contacts: </p>
+                        <p><a href="mailto:gubis333@gmail.com" class="filter-tab">Mail ↗</a></p>
+                        <p><a href="https://www.linkedin.com/in/alessandro-parente-01a177259/" target="_blank" class="filter-tab">LinkedIn ↗</a></p>
+                    </div>
+                    <div class="mt-6 text-sm">
+                        <p>&copy; 2025 Gubis, all rights are reserved</p>
+                    </div>
                 </div>
             </div>
-            <!-- Desktop: original layout -->
-            <div class="hidden md:flex w-full flex-row justify-between items-center gap-2">
-                <p class="mt-2 md:mt-0">&copy; Gubis 2025</p>
-                <p><a href="mailto:gubis333@gmail.com" class="hover:underline">gubis333@gmail.com</a></p>
-                <p class="mt-2 md:mt-0">Milan, Italy</p>
-                <p class="mt-2 md:mt-0">
-                    <a href="#" class="to-top-link">To Top ↑</a>
-                </p>
+            <!-- Desktop -->
+            <div class="hidden md:flex w-full flex-row justify-between items-start leading-snug">
+                <div class="text-sm leading-tight">
+                    <p class="text-xl pb-2" style="font-family: 'Wolpe';">GUBIS</p>
+                    <p>&copy; 2025 Gubis</p>
+                    <p>All rights reserved Milan, Italy</p>
+                </div>
+                <div>
+                    <p class="text-gray-600 py-1"> Contacts: </p>
+                    <p><a href="mailto:gubis333@gmail.com" class="filter-tab">Mail ↗</a></p>
+                    <p><a href="https://www.linkedin.com/in/alessandro-parente-01a177259/" target="_blank" class="filter-tab">LinkedIn ↗</a></p>
+                </div>
             </div>
         </div>
     </footer>

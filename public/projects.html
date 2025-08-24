@@ -2,8 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gubis - Projects</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Gubis (Alessandro Parente) - Design Projects</title>
+
+    <meta name="description" content="Gubis (Alessandro Parente) è un designer emergente a Milano specializzato in UX/UI Design, branding e art direction. Scopri i suoi progetti creativi e il portfolio.">
+    <meta name="keywords" content="Gubis, Alessandro Parente, designer Milano, UX/UI Design, graphic design, art direction, branding, portfolio, emergente">
+    <meta property="og:title" content="Gubis | Designer Milano" />
+    <meta property="og:description" content="Portfolio di Gubis (Alessandro Parente), designer specializzato in UX/UI Design, Branding e Art Direction." />
+    <meta property="og:image" content="https://res.cloudinary.com/dzwg40mls/image/upload/v1748858093/Personal_Project_Thumbnail_skssxo.webp" />
+    <meta property="og:url" content="https://www.gubisdesign.com" />
+    <meta property="og:type" content="website" />
+
     <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
     <link rel="shortcut icon" href="favicon/favicon.ico" />
@@ -42,7 +51,11 @@
             font-style: normal;
             font-display: swap;
     }
-    
+    /* per device moderni, assicura che il body copra l’altezza visibile */
+    @supports (height: 100svh) {
+        body { min-height: 100svh; }
+    }
+
 .project-hover {
     display: block;
     width: 100%;
@@ -312,8 +325,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="text-base md:text-base px-6 py-6 md:py-10 lg:px-40 md:px-24 bg-gray-200 z-10 text-gray-400 md:-mt-8 rounded-t-3xl"
-            style="padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));">
+    <footer class="text-base md:text-base px-6 py-6 md:py-10 lg:px-40 md:px-24 bg-gray-200 z-10 text-gray-400 md:-mt-8 rounded-t-3xl">
         <div>
             <!-- Mobile -->
             <div class="block md:hidden w-full">

@@ -94,9 +94,11 @@
 }
 
 .filter-tab:hover,
+.nav-link:hover,
 .to-top-link:hover {
     color: #000;
 }
+.nav-link.active,
 .filter-tab.active {
     color: #000 !important;
     border-color: #000 !important;
@@ -104,10 +106,7 @@
 .filter-tab:hover {
     border-color: #000;
 }
-.nav-link:hover,
-.nav-link.active {
-    color: #9ca3af !important;
-}
+
 .fade-slide {
     opacity: 0;
     transform: translateY(90px);
@@ -127,29 +126,6 @@
     .filter-tabs-container::-webkit-scrollbar {
         display: none;
     }
-}
-.mb-2.aspect-\[5\/4\] {
-    position: relative;
-}
-.nav-link,
-.filter-tab,
-.to-top-link {
-    transition: color 0.2s;
-}
-.nav-link:hover,
-.filter-tab:hover,
-.to-top-link:hover {
-    color: #000;
-}
-.filter-tab.active {
-    color: #000 !important;
-    border-color: #000 !important;
-}
-.filter-tab:hover {
-    border-color: #000;
-}
-.nav-link.active {
-    color: #9ca3af !important;
 }
 .fade-slide {
     opacity: 0;
@@ -175,16 +151,16 @@
 </head>
 <body class="bg-white min-h-screen flex flex-col font-dashiell tracking-wide overscroll-none" style="font-family: 'Dashiell', serif;">
     <!-- Header -->
-    <header class=" fixed top-0 left-0 right-0 px-3 py-3 md:py-4 md:px-16 bg-white z-50 border-b" style="border-bottom: 0.25px solid #000;">
+    <header class="fixed top-0 left-0 right-0 px-3 py-3 md:py-4 md:px-16 bg-white z-50 border-b border-gray-300">
         <nav class="flex justify-between items-center mx-auto">
             <div class="tracking-wide text-2xl hidden md:block" style="font-family: 'Wolpe';">
                 <a href="projects.html" class="nav-link">GUBIS</a>
             </div>
             <div class="flex-auto md:flex-initial flex justify-center md:justify-end">
-                <div class="flex font-normal space-x-10 md:space-x-14 text-lg md:text-lg">
+                <div class="flex font-normal space-x-10 md:space-x-14 text-lg md:text-lg text-gray-400">
                     <a href="projects.html" class="nav-link active">Portfolio</a>
                     <a href="about.html" class="nav-link">About Me</a>
-                    <a href="mailto:gubis333@gmail.com" class="nav-link">Contact</a>
+                    <a href="mailto:gubis333@gmail.com" class="nav-link hidden">Contact</a>
                 </div>
             </div>
         </nav>
@@ -199,12 +175,12 @@
     <div class="px-6 md:px-16 py-6 md:py-8">
         <div class="filter-tabs-container">
             <div class="flex flex-wrap gap-2 md:gap-4 text-sm md:text-base tracking-wider text-gray-400 min-w-min md:min-w-0 px-1">
-                <button class="filter-tab active whitespace-nowrap py-2 px-8 border border-gray-400 rounded-xl" data-filter="all">All</button>
-                <button class="filter-tab whitespace-nowrap py-2 px-8 border border-gray-400 rounded-xl" data-filter="branding">Branding</button>
-                <button class="filter-tab whitespace-nowrap py-2 px-8 border border-gray-400 rounded-xl" data-filter="illustration">Illustration</button>
-                <button class="filter-tab whitespace-nowrap py-2 px-8 border border-gray-400 rounded-xl" data-filter="video">Video</button>
-                <button class="filter-tab whitespace-nowrap py-2 px-8 border border-gray-400 rounded-xl" data-filter="exhibitions">Exhibition</button>
-                <button class="filter-tab whitespace-nowrap py-2 px-8 border border-gray-400 rounded-xl" data-filter="study">Study</button>
+                <button class="filter-tab active whitespace-nowrap py-2 px-8 border border-gray-300 rounded-xl" data-filter="all">All</button>
+                <button class="filter-tab whitespace-nowrap py-2 px-8 border border-gray-300 rounded-xl" data-filter="branding">Branding</button>
+                <button class="filter-tab whitespace-nowrap py-2 px-8 border border-gray-300 rounded-xl" data-filter="illustration">Illustration</button>
+                <button class="filter-tab whitespace-nowrap py-2 px-8 border border-gray-300 rounded-xl" data-filter="video">Video</button>
+                <button class="filter-tab whitespace-nowrap py-2 px-8 border border-gray-300 rounded-xl" data-filter="exhibitions">Exhibition</button>
+                <button class="filter-tab whitespace-nowrap py-2 px-8 border border-gray-300 rounded-xl" data-filter="study">Study</button>
             </div>
         </div>
     </div>
@@ -213,10 +189,9 @@
     <main class="flex-1 px-6 md:px-16 pb-4 md:pb-16 mt-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-x-4 md:gap-y-4">
             <!-- Project 1 -->
-            <div class="project-item mb-4 fade-slide" style="animation-delay: 0.3s;" data-category="video">
-                <a href="narciso.html" class="block">
-                    <!-- aggiunto rounded-2xl e overflow-hidden al contenitore -->
-                    <div class="mb-2 aspect-[5/4] rounded-2xl overflow-hidden">
+            <div class="project-item mb-4 fade-slide border border-gray-300 rounded-2xl lg:rounded-3xl filter-tab text-gray-400" style="animation-delay: 0.3s;" data-category="video">
+                <a href="narciso.html" class="block p-2">
+                    <div class="mb-2 aspect-[5/4] rounded-xl lg:rounded-2xl overflow-hidden">
                         <img 
                             src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748857937/Narciso_Thumbnail_lmy1up.webp" 
                             alt="Narciso"
@@ -224,16 +199,18 @@
                             loading="lazy"
                         >
                     </div>
-                    <h3 class="project-title text-base lg:text-lg py-1 px-3">
-                        Narciso <span class="text-gray-400 ml-2 lg:ml-4">Short Movie <span class="text-gray-400 hidden md:inline">- 2022</span></span>
+                    <h3 class="project-title text-base lg:text-lg py-1 lg:py-2 px-3">
+                        <span class="text-black">Narciso</span>
+                        <span class="text-gray-400 ml-2 lg:ml-4">Short Movie <span class="text-gray-400 hidden md:inline">- 2022</span></span>
+                        <span class="filter-tab float-right">→</span>
                     </h3>
                 </a>
             </div>
 
             <!-- Project 2 -->
-            <div class="project-item mb-4 fade-slide" style="animation-delay: 0.4s;" data-category="exhibitions branding">
-                <a href="mu-design-show.html" class="block">
-                    <div class="mb-2 aspect-[5/4] rounded-2xl overflow-hidden">
+            <div class="project-item mb-4 fade-slide border border-gray-300 rounded-2xl lg:rounded-3xl filter-tab text-gray-400" style="animation-delay: 0.4s;" data-category="exhibitions branding">
+                <a href="mu-design-show.html" class="block p-2">
+                    <div class="mb-2 aspect-[5/4] rounded-xl lg:rounded-2xl overflow-hidden">
                         <img 
                             src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748857938/MU_Show_Thumbnail_sqpi0r.webp" 
                             alt="MU Design Show"
@@ -241,16 +218,18 @@
                             loading="lazy"
                         >
                     </div>
-                    <h3 class="project-title text-base lg:text-lg py-1 px-3">
-                        MU Design Show <span class="text-gray-400 ml-2 lg:ml-4">Design System <span class="text-gray-400 hidden md:inline">- 2022</span></span>
+                    <h3 class="project-title text-base lg:text-lg py-1 lg:py-2 px-3">
+                        <span class="text-black">MU Design Show</span>
+                        <span class="text-gray-400 ml-2 lg:ml-4">Design System <span class="text-gray-400 hidden md:inline">- 2022</span></span>
+                        <span class="filter-tab float-right">→</span>
                     </h3>
                 </a>
             </div>
 
             <!-- Project 3 -->
-            <div class="project-item mb-4 fade-slide" style="animation-delay: 0.5s;" data-category="illustration">
-                <a href="orco-povero.html" class="block">
-                    <div class="mb-2 aspect-[5/4] rounded-2xl overflow-hidden">
+            <div class="project-item mb-4 fade-slide border border-gray-300 rounded-2xl lg:rounded-3xl filter-tab text-gray-400" style="animation-delay: 0.5s;" data-category="illustration">
+                <a href="orco-povero.html" class="block p-2">
+                    <div class="mb-2 aspect-[5/4] rounded-xl lg:rounded-2xl overflow-hidden">
                         <img 
                             src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748857937/Orco_Povero_Thumbnail_g0huqr.webp" 
                             alt="L'Orco e il Povero"
@@ -258,16 +237,18 @@
                             loading="lazy"
                         >
                     </div>
-                    <h3 class="project-title text-base lg:text-lg py-1 px-3">
-                        L'Orco e il Povero <span class="text-gray-400 ml-2 lg:ml-4">Illustrated Book <span class="text-gray-400 hidden md:inline">- 2022</span></span>
+                    <h3 class="project-title text-base lg:text-lg py-1 lg:py-2 px-3">
+                        <span class="text-black">L'Orco e il Povero</span>
+                        <span class="text-gray-400 ml-2 lg:ml-4">Illustrated Book <span class="text-gray-400 hidden md:inline">- 2022</span></span>
+                        <span class="filter-tab float-right">→</span>
                     </h3>
                 </a>
             </div>
 
             <!-- Project 4 -->
-            <div class="project-item mb-4 fade-slide" style="animation-delay: 0.6s;" data-category="study">
-                <a href="devil-wears-prada.html" class="block">
-                    <div class="mb-2 aspect-[5/4] rounded-2xl overflow-hidden">
+            <div class="project-item mb-4 fade-slide border border-gray-300 rounded-2xl lg:rounded-3xl filter-tab text-gray-400" style="animation-delay: 0.6s;" data-category="study">
+                <a href="devil-wears-prada.html" class="block p-2">
+                    <div class="mb-2 aspect-[5/4] rounded-xl lg:rounded-2xl overflow-hidden">
                         <img 
                             src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748857937/Gucci_AI_Thumbnail_fpfkjx.webp" 
                             alt="The Devil Wears Prada"
@@ -275,16 +256,18 @@
                             loading="lazy"
                         >
                     </div>
-                    <h3 class="project-title text-base lg:text-lg py-1 px-3">
-                        The Devil Wears Prada <span class="text-gray-400 ml-2 lg:ml-4">AI Project <span class="text-gray-400 hidden md:inline">- 2022</span></span>
+                    <h3 class="project-title text-base lg:text-lg py-1 lg:py-2 px-3">
+                        <span class="text-black">The Devil Wears Prada</span>
+                        <span class="text-gray-400 ml-2 lg:ml-4">AI Project <span class="text-gray-400 hidden md:inline">- 2022</span></span>
+                        <span class="filter-tab float-right">→</span>
                     </h3>
                 </a>
             </div>
 
             <!-- Project 5 -->
-            <div class="project-item mb-4 fade-slide" style="animation-delay: 0.7s;" data-category="study">
-                <a class="block">
-                    <div class="mb-2 aspect-[5/4] rounded-2xl overflow-hidden">
+            <div class="project-item mb-4 fade-slide border border-gray-300 rounded-2xl lg:rounded-3xl filter-tab text-gray-400" style="animation-delay: 0.7s;" data-category="study">
+                <a class="block p-2">
+                    <div class="mb-2 aspect-[5/4] rounded-xl lg:rounded-2xl overflow-hidden">
                         <img 
                             src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748858093/Personal_Project_Thumbnail_skssxo.webp" 
                             alt="Personal Project"
@@ -292,16 +275,18 @@
                             loading="lazy"
                         >
                     </div>
-                    <h3 class="project-title text-base lg:text-lg py-1 px-3">
-                        Personal Projects <span class="text-gray-400 ml-2 lg:ml-4">WIP</span>
+                    <h3 class="project-title text-base lg:text-lg py-1 lg:py-2 px-3">
+                        <span class="text-black">Personal Projects</span>
+                        <span class="text-gray-400 ml-2 lg:ml-4">WIP</span>
+                        <span class="filter-tab float-right">→</span>
                     </h3>
                 </a>
             </div>
 
             <!-- Project 6 -->
-            <div class="project-item mb-4 fade-slide" style="animation-delay: 0.8s;" data-category="exhibitions">
-                <a class="block">
-                    <div class="mb-2 aspect-[5/4] rounded-2xl overflow-hidden">
+            <div class="project-item mb-4 fade-slide border border-gray-300 rounded-2xl lg:rounded-3xl filter-tab text-gray-400" style="animation-delay: 0.8s;" data-category="exhibitions">
+                <a class="block p-2">
+                    <div class="mb-2 aspect-[5/4] rounded-xl lg:rounded-2xl overflow-hidden">
                         <img 
                             src="https://res.cloudinary.com/dzwg40mls/image/upload/v1750086718/taptap_xcpv0q.webp" 
                             alt="Gallery"
@@ -309,8 +294,10 @@
                             loading="lazy"
                         >
                     </div>
-                    <h3 class="project-title text-base lg:text-lg py-1 px-3">
-                        Habit System <span class="text-gray-400 ml-2 lg:ml-4">Speculative Design <span class="text-gray-400 hidden md:inline">- WIP</span></span>
+                    <h3 class="project-title text-base lg:text-lg py-1 lg:py-2 px-3">
+                        <span class="text-black">Habit System</span>
+                        <span class="text-gray-400 ml-2 lg:ml-4">Speculative Design <span class="text-gray-400 hidden md:inline">- WIP</span></span>
+                        <span class="filter-tab float-right">→</span>
                     </h3>
                 </a>
             </div>
@@ -325,7 +312,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="text-base md:text-base px-6 py-6 md:py-10 lg:px-40 md:px-24 bg-gray-200 z-10 text-gray-400 md:-mt-8 rounded-t-3xl">
+    <footer class="text-base md:text-base px-6 py-6 md:py-10 lg:px-40 md:px-24 bg-gray-300border-gray-300 z-10 text-gray-400 md:-mt-8 rounded-t-3xl">
         <div>
             <!-- Mobile -->
             <div class="block md:hidden w-full">

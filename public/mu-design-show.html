@@ -55,7 +55,7 @@
             transition: color 0.2s;
         }
         .nav-link:hover{
-            color: #9ca3af;
+            color: #000 !important;
         }
         .filter-tab:hover,
         .to-top-link:hover {
@@ -63,7 +63,7 @@
             border-color: #000;
         }
         .nav-link.active {
-            color: #9ca3af !important;
+            color: #000 !important;
         }
         .fade-slide {
             opacity: 0;
@@ -78,16 +78,16 @@
 </head>
 <body class="bg-white min-h-screen flex flex-col font-dashiell tracking-wide overscroll-none" style="font-family: 'Dashiell', serif;">
     <!-- Header -->
-    <header id="main-header" class="text-xl fixed top-0 left-0 right-0 px-3 py-3 md:py-4 md:px-16 bg-transparent transition-colors duration-300 z-50 border-b" style="border-bottom: 0.25px solid #000;">
+    <header id="main-header" class="text-xl fixed top-0 left-0 right-0 px-3 py-3 md:py-4 md:px-16 bg-transparent transition-colors duration-300 z-50 border-b border-gray-300">
         <nav class="flex justify-between items-center mx-auto">
             <div class="tracking-wide text-2xl hidden md:block" style="font-family: 'Wolpe';">
                 <a href="projects.html" class="nav-link">GUBIS</a>
             </div>
             <div class="flex-auto md:flex-initial flex justify-center md:justify-end">
-                <div class="flex font-normal space-x-10 md:space-x-14 text-lg md:text-lg">
+                <div class="flex font-normal space-x-10 md:space-x-14 text-lg md:text-lg text-gray-400">
                     <a href="projects.html" class="nav-link">Portfolio</a>
                     <a href="about.html" class="nav-link">About Me</a>
-                    <a href="mailto:gubis333@gmail.com" class="nav-link">Contact</a>
+                    <a href="mailto:gubis333@gmail.com" class="nav-link hidden">Contact</a>
                 </div>
             </div>
         </nav>
@@ -326,20 +326,36 @@
             }, 800);
         });
 
-        // Header background trasparente on top, bianco on scroll
+        // Header background trasparente on top, bianco on scroll + testo nero su top
+        // Solo su schermi > md, e border-b nero all'inizio (spessore 0.25px)
         document.addEventListener('DOMContentLoaded', function () {
             const header = document.getElementById('main-header');
+            const navLinks = header.querySelectorAll('.nav-link');
             function updateHeaderBg() {
+            // Applica solo su schermi md e superiori
+            if (window.innerWidth >= 768) {
                 if (window.scrollY > 10) {
-                    header.classList.remove('bg-transparent');
-                    header.classList.add('bg-white');
+                header.classList.remove('bg-transparent', 'border-black');
+                header.classList.add('bg-white', 'border-gray-300');
+                header.style.borderBottomWidth = ''; // reset custom border
+                navLinks.forEach(link => link.classList.remove('text-black'));
                 } else {
-                    header.classList.remove('bg-white');
-                    header.classList.add('bg-transparent');
+                header.classList.remove('bg-white', 'border-gray-300');
+                header.classList.add('bg-transparent', 'border-black');
+                header.style.borderBottomWidth = '0.25px';
+                navLinks.forEach(link => link.classList.add('text-black'));
                 }
+            } else {
+                // Reset su mobile: header sempre trasparente e border grigio
+                header.classList.remove('bg-transparent', 'border-black');
+                header.classList.add('bg-white', 'border-gray-300');
+                header.style.borderBottomWidth = ''; // reset custom border
+                navLinks.forEach(link => link.classList.remove('text-black'));
+            }
             }
             updateHeaderBg();
             window.addEventListener('scroll', updateHeaderBg);
+            window.addEventListener('resize', updateHeaderBg);
         });
     </script>
 </body>

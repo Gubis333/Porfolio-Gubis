@@ -54,6 +54,7 @@
         },
       }
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <style>
     @font-face {
         font-family: 'Dashiell';
@@ -79,6 +80,27 @@
     
     @supports (height: 100svh) {
         body { min-height: 100svh; }
+    }
+
+    /* Overlay a tutto schermo */
+    #page-loader {
+        position: fixed;
+        inset: 0;
+        background-color: #F5F4F1; /* Sfondo Crema */
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        perspective: 1000px; /* Profondità per l'effetto 3D */
+    }
+
+    /* Il quadratino animato */
+    .loader-square {
+        width: 45px;
+        height: 45px;
+        background-color: #FF8A65; /* Colore iniziale (Brand) */
+        border-radius: 4px;
+        transform-style: preserve-3d;
     }
 
     .project-hover {
@@ -123,30 +145,34 @@
 
 </head>
 <body class="bg-cream min-h-screen flex flex-col font-dashiell tracking-wide overscroll-none" style="font-family: 'Dashiell', serif;">
+    <div id="page-loader">
+        <div class="loader-square shadow-lg"></div>
+    </div>
     <header class="fixed top-0 left-0 right-0 px-3 py-3 md:py-4 md:px-16 bg-cream z-50 border-b border-cream-border">
         <nav class="flex justify-between items-center mx-auto">
             <div class="tracking-wide text-2xl hidden md:block" style="font-family: 'Wolpe';">
-                <a href="index.html" class="nav-link text-cream-dark">GUBIS</a>
+                <a href="index.html" class="nav-link text-cream-dark transition-link">GUBIS</a>
             </div>
             <div class="flex-auto md:flex-initial flex justify-center md:justify-end">
                 <div class="flex font-normal space-x-10 md:space-x-14 text-lg md:text-lg text-cream-text">
-                    <a href="index.html" class="nav-link active">Portfolio</a>
-                    <a href="about.html" class="nav-link">About Me</a>
+                    <a href="index.html" class="nav-link active transition-link">Portfolio</a>
+                    <a href="about.html" class="nav-link transition-link">About Me</a>
                     <a href="mailto:gubis333@gmail.com" class="nav-link hidden">Contact</a>
                 </div>
             </div>
         </nav>
     </header>
 
-    <section class="px-6 lg:px-40 md:px-24 mt-32 md:mt-48 fade-slide visible">
-        <div class="max-w-5xl">
-            <!-- Profile Area with refined copy -->
-            <div class="mb-6 flex items-center gap-5">
+    <section class="px-6 lg:px-40 md:px-24 mt-32 md:mt-48 fade-slide visible text-center">
+        <div class="max-w-5xl mx-auto flex flex-col items-center">
+            <!-- Author Signature Area (Centered Coin) -->
+            <div class="mb-10 flex flex-col items-center">
                 <!-- Profile Image with Thick Flip Coin Micro-interaction -->
                 <a href="about.html" class="inline-block group [perspective:1000px] relative">
+                    <!-- The "Hole" in the background -->
                     <div class="absolute inset-0 rounded-full bg-cream-text/10 scale-95 md:scale-95"></div>
                     
-                    <div class="relative w-14 h-14 md:w-20 md:h-20 transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(-180deg)] [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)] cursor-pointer">
+                    <div class="relative w-20 h-20 md:w-24 md:h-24 transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(-180deg)] [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)] cursor-pointer">
                         
                         <!-- Coin Edge/Rim -->
                         <div class="absolute inset-0 rounded-full bg-cream-border [transform:translateZ(-1px)]"></div>
@@ -162,24 +188,27 @@
                         
                         <!-- Back Face -->
                         <div class="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(-180deg)_translateZ(3px)] bg-cream-dark rounded-full flex flex-col items-center justify-center border border-cream-dark shadow-md text-center">
-                            <span class="text-[9px] md:text-[11px] font-medium text-cream uppercase tracking-widest leading-none">About<br>Me</span>
+                            <span class="text-[10px] md:text-[12px] font-medium text-cream uppercase tracking-widest leading-none">About<br>Me</span>
                         </div>
                     </div>
                 </a>
-
-                <!-- Refined Hero Disclaimer -->
-                <div class="hidden sm:block border-l border-cream-border pl-5 py-1">
-                    <span class="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-cream-text/60 leading-relaxed block font-medium">
-                        Website Designed & Coded<br>by Alessandro Parente
-                    </span>
-                </div>
             </div>
-            
+
+            <!-- Greeting label -->
             <span class="block text-sm md:text-base text-cream-text tracking-widest uppercase mb-4 font-normal">Hi I'm Gubis</span>
-            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight font-normal text-cream-dark">
+
+            <!-- Main Value Proposition (H1) -->
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight font-normal text-cream-dark max-w-4xl mx-auto">
                 Visual & Service designer <br class="hidden md:block" />
                 with a <span class="italic text-cream-text/90">strategic eye.</span>
             </h1>
+
+            <!-- Technical Disclaimer (Now Wider) -->
+            <div class="mt-12 border-t border-cream-border/50 pt-6 w-48 md:w-56 mx-auto">
+                <span class="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-cream-text/60 leading-relaxed block font-medium">
+                    Designed & Coded<br>by Alessandro Parente
+                </span>
+            </div>
         </div>
     </section>
 
@@ -221,11 +250,11 @@
 
             <!-- Project 1: Alìva -->
             <div class="project-item fade-slide border border-cream-border rounded-3xl nav-link text-cream-text" style="animation-delay: 0.3s; box-shadow: 0 1px 20px 2px rgba(0,0,0,0.05);" data-category="branding UX/UI service">
-                <a href="#" class="block p-2 relative">
+                <a href="aliva.html" class="block p-2 relative nav-link transition-link">
                     <div class="relative mb-3 aspect-[5/4] rounded-2xl overflow-hidden bg-gray-100">
                         <img 
-                            src="https://placehold.co/600x480/e5e7eb/a3a3a3?text=Al%C3%ACva" 
-                            alt="Alìva System Design"
+                            src="https://res.cloudinary.com/dzwg40mls/image/upload/v1770125413/Aliva_Masterhead_xp9y4m.webp" 
+                            alt="Alìva Product Service System Design"
                             class="project-hover object-cover w-full h-full"
                             loading="lazy"
                         >
@@ -247,10 +276,10 @@
 
             <!-- Project 2: JEMPy -->
             <div class="project-item fade-slide border border-cream-border rounded-3xl nav-link text-cream-text" style="animation-delay: 0.35s; box-shadow: 0 1px 20px 2px rgba(0,0,0,0.05);" data-category="AI UX/UI">
-                <a href="#" class="block p-2 relative">
+                <a href="#" class="block p-2 relative nav-link transition-link">
                     <div class="relative mb-3 aspect-[5/4] rounded-2xl overflow-hidden bg-gray-100">
                         <img 
-                            src="https://placehold.co/600x480/e5e7eb/a3a3a3?text=JEMPy" 
+                            src="https://placehold.co/600x480/e5e7eb/a3a3a3?text=Coming Soon" 
                             alt="JEMPy Project"
                             class="project-hover object-cover w-full h-full"
                             loading="lazy"
@@ -272,7 +301,7 @@
 
             <!-- Project 3: Habit System -->
             <div class="project-item fade-slide border border-cream-border rounded-3xl text-cream-text nav-link" style="animation-delay: 0.4s; box-shadow: 0 1px 20px 2px rgba(0,0,0,0.05);" data-category="exhibitions UX/UI service branding">
-                <a href="habit-system.html" class="block p-2 relative">
+                <a href="habit-system.html" class="block p-2 relative nav-link transition-link">
                     <div class="relative mb-3 aspect-[5/4] rounded-2xl overflow-hidden">
                         <img 
                             src="https://res.cloudinary.com/dzwg40mls/image/upload/v1758060163/DSC08939_1_jwj3we.webp" 
@@ -298,7 +327,7 @@
 
             <!-- Project 4: MU Design Show -->
             <div class="project-item fade-slide border border-cream-border rounded-3xl nav-link text-cream-text" style="animation-delay: 0.45s; box-shadow: 0 1px 20px 2px rgba(0,0,0,0.05);" data-category="branding">
-                <a href="mu-design-show.html" class="block p-2 relative">
+                <a href="mu-design-show.html" class="block p-2 relative nav-link transition-link">
                     <div class="relative mb-3 aspect-[5/4] rounded-2xl overflow-hidden">
                         <img 
                             src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748857938/MU_Show_Thumbnail_sqpi0r.webp" 
@@ -322,7 +351,7 @@
 
             <!-- Project 5: L'Orco -->
             <div class="project-item fade-slide border border-cream-border rounded-3xl nav-link text-cream-text" style="animation-delay: 0.5s; box-shadow: 0 1px 20px 2px rgba(0,0,0,0.05);" data-category="illustration">
-                <a href="orco-povero.html" class="block p-2 relative">
+                <a href="orco-povero.html" class="block p-2 relative nav-link transition-link">
                     <div class="relative mb-3 aspect-[5/4] rounded-2xl overflow-hidden">
                         <img 
                             src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748857937/Orco_Povero_Thumbnail_g0huqr.webp" 
@@ -346,7 +375,7 @@
 
             <!-- Project 6: Narciso -->
             <div class="project-item fade-slide border border-cream-border rounded-3xl nav-link text-cream-text" style="animation-delay: 0.55s; box-shadow: 0 1px 20px 2px rgba(0,0,0,0.05);" data-category="video">
-                <a href="narciso.html" class="block p-2 relative">
+                <a href="narciso.html" class="block p-2 relative nav-link transition-link">
                     <div class="relative mb-3 aspect-[5/4] rounded-2xl overflow-hidden">
                         <img 
                             src="https://res.cloudinary.com/dzwg40mls/image/upload/v1748857937/Narciso_Thumbnail_lmy1up.webp" 
@@ -528,6 +557,75 @@
                 }, 150 + i * 120);
             });
         });
+
+        // 1. Definiamo la timeline di GSAP per il loop infinito del quadrato
+    const loaderSquare = document.querySelector('.loader-square');
+    const brandColors = ['#FF8A65', '#B39DDB', '#4FC3F7', '#DCE775', '#fca5a5'];
+    let currentColorIndex = 0;
+
+    const loaderTl = gsap.timeline({ repeat: -1 });
+
+    // Animazione di Flip X e cambio colore
+    loaderTl.to(loaderSquare, {
+        rotationX: -180,
+        duration: 0.7,
+        ease: "power2.inOut",
+        onStart: () => {
+            currentColorIndex = (currentColorIndex + 1) % brandColors.length;
+            gsap.to(loaderSquare, { backgroundColor: brandColors[currentColorIndex], duration: 0.3 });
+        }
+    })
+    // Animazione di Flip Y e cambio colore
+    .to(loaderSquare, {
+        rotationY: -180,
+        duration: 0.7,
+        ease: "power2.inOut",
+        onStart: () => {
+            currentColorIndex = (currentColorIndex + 1) % brandColors.length;
+            gsap.to(loaderSquare, { backgroundColor: brandColors[currentColorIndex], duration: 0.3 });
+        }
+    });
+
+    // 2. LOGICA DI ENTRATA (Quando la pagina finisce di caricare)
+    window.addEventListener('load', () => {
+        const loaderOverlay = document.getElementById('page-loader');
+        
+        // Dissolvenza in uscita dell'overlay crema
+        gsap.to(loaderOverlay, {
+            opacity: 0,
+            duration: 0.6,
+            ease: "power2.inOut",
+            onComplete: () => {
+                loaderOverlay.style.display = 'none';
+                loaderTl.pause(); // Ottimizzazione: ferma l'animazione quando non visibile
+            }
+        });
+    });
+
+    // 3. LOGICA DI USCITA (Quando si clicca su un link per cambiare pagina)
+    // Seleziona tutti i link che hanno la classe 'transition-link'
+    document.querySelectorAll('.transition-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const destination = this.getAttribute('href');
+            
+            // Evita l'animazione per link interni (#), mail o se non c'è destinazione
+            if (destination && destination !== '#' && !destination.startsWith('mailto')) {
+                e.preventDefault();
+                const loaderOverlay = document.getElementById('page-loader');
+                
+                loaderOverlay.style.display = 'flex';
+                loaderTl.play();
+                
+                gsap.fromTo(loaderOverlay, { opacity: 0 }, {
+                    opacity: 1,
+                    duration: 0.4,
+                    onComplete: () => {
+                        window.location.href = destination;
+                    }
+                });
+            }
+        });
+    });
     </script>
 </body>
 </html>

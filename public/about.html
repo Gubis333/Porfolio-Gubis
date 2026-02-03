@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCE5X012DD"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCE5X012DD"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-        gtag('config', 'G-YCE5X012DD');
-        </script>
+    gtag('config', 'G-YCE5X012DD');
+    </script>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gubis (Alessandro Parente) - About Me | UX/UI Designer & Branding Milano</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Gubis (Alessandro Parente) - Design Projects</title>
 
     <meta name="description" content="Gubis (Alessandro Parente) è un designer emergente a Milano specializzato in UX/UI Design, branding e art direction. Scopri i suoi progetti creativi e il portfolio.">
     <meta name="keywords" content="Gubis, Alessandro Parente, designer Milano, UX/UI Design, graphic design, art direction, branding, portfolio, emergente">
     <meta property="og:title" content="Gubis | Designer Milano" />
     <meta property="og:description" content="Portfolio di Gubis (Alessandro Parente), designer specializzato in UX/UI Design, Branding e Art Direction." />
-    <meta property="og:image" content="https://res.cloudinary.com/dzwg40mls/image/upload/v1750078092/DSC_5785_hsgpvj.webp" />
+    <meta property="og:image" content="https://res.cloudinary.com/dzwg40mls/image/upload/v1748858093/Personal_Project_Thumbnail_skssxo.webp" />
     <meta property="og:url" content="https://www.gubisdesign.com" />
     <meta property="og:type" content="website" />
 
@@ -32,194 +31,234 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
-        theme: { extend: {} },
-        plugins: [tailwindcssAspectRatio],
+        theme: {
+          extend: {
+            colors: {
+                // Palette Perla/Terra (Updated to less saturated pearl)
+                'cream': '#F5F4F1',       // Pearl White (Slightly less saturated)
+                'cream-dark': '#1C1B19',  
+                'cream-text': '#8A8680',  
+                'cream-border': '#E6E2D6',
+                
+                // 5 Core Categories Palette (Updated)
+                'flag-brand': '#FF8A65',  // Branding (Warm Orange)
+                'flag-ux': '#B39DDB',     // UX/UI (Soft Purple)
+                'flag-service': '#4FC3F7',// Service (Bright Blue)
+                'flag-ai': '#DCE775',     // AI (Lime Green)
+                'flag-exp': '#fca5a5',    // Experiments (Rose Coral)
+            },
+            screens: {
+                '3xl': '1920px',
+            }
+          },
+        },
       }
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <style>
-        @font-face {
-            font-family: 'Dashiell';
-            src: url('https://res.cloudinary.com/dzwg40mls/raw/upload/v1750186604/Dashiell-Regular_ijnmru.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-        @font-face {
-            font-family: 'Dashiell';
-            src: url('https://res.cloudinary.com/dzwg40mls/raw/upload/v1750186604/Dashiell-Italic_eme2ys.woff') format('woff');
-            font-weight: normal;
-            font-style: italic;
-            font-display: swap;
-        }
-        @font-face {
+    @font-face {
+        font-family: 'Dashiell';
+        src: url('https://res.cloudinary.com/dzwg40mls/raw/upload/v1750186604/Dashiell-Regular_ijnmru.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Dashiell';
+        src: url('https://res.cloudinary.com/dzwg40mls/raw/upload/v1750186604/Dashiell-Italic_eme2ys.woff') format('woff');
+        font-weight: normal;
+        font-style: italic;
+        font-display: swap;
+    }
+    @font-face {
             font-family: 'Wolpe';
             src: url('https://res.cloudinary.com/dzwg40mls/raw/upload/v1753139198/08fd6ffb87aac63ca5d4a4da848f4b86_qki7m6.woff') format('woff');
             font-weight: normal;
             font-style: normal;
             font-display: swap;
-        }
+    }
+    
+    @supports (height: 100svh) {
+        body { min-height: 100svh; }
+    }
 
-        .filter-tab:hover {
-            border-color: #000;
-            color: #000;
-        }
-        .nav-link,
-        .to-top-link {
-            transition: color 0.2s;
-        }
-        
-        .to-top-link:hover {
-            color: #000; /* blue-700 */
-        }
-        .nav-link:hover,
-        .nav-link.active {
-            color: #000 !important;
-        }
-        .fade-slide {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1);
-        }
-        .fade-slide.fade-slide-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    /* Overlay a tutto schermo */
+    #page-loader {
+        position: fixed;
+        inset: 0;
+        background-color: #F5F4F1; /* Sfondo Crema */
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        perspective: 1000px; /* Profondità per l'effetto 3D */
+    }
+
+    /* Il quadratino animato */
+    .loader-square {
+        width: 45px;
+        height: 45px;
+        background-color: #FF8A65; /* Colore iniziale (Brand) */
+        border-radius: 4px;
+        transform-style: preserve-3d;
+    }
+
+    .project-hover {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s cubic-bezier(.4,0,.2,1), filter 0.5s cubic-bezier(.4,0,.2,1);
+        will-change: transform, filter;
+        transform-origin: center center;
+        backface-visibility: hidden;
+    }
+
+    .project-item:hover .project-hover {
+        transform: scale(1.06);
+        filter: brightness(1.02);
+    }
+
+    .nav-link, .to-top-link { transition: color 0.2s; }
+    .nav-link:hover, .to-top-link:hover { color: #1C1B19; }
+    .nav-link.active { color: #1C1B19 !important; border-color: #1C1B19 !important; }
+    .nav-link:hover { border-color: #1C1B19; }
+
+    .fade-slide {
+        opacity: 0;
+        transform: translateY(90px);
+        transition: opacity 0.6s cubic-bezier(.4,0,.2,1), transform 0.6s cubic-bezier(.4,0,.2,1);
+    }
+    .fade-slide.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Animation for flags on hover */
+    .project-item:hover .flag-tag {
+        height: 2.2rem; /* Elongate slightly on hover */
+    }
+    .flag-tag {
+        transition: height 0.3s ease;
+    }
     </style>
+
 </head>
-<body class="bg-white min-h-screen flex flex-col font-dashiell tracking-wide overscroll-none opacity-0 transition-opacity duration-700" style="font-family: 'Dashiell', serif;">
-    <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 px-3 py-3 md:py-4 md:px-16 bg-white z-50 border-b border-gray-300">
+<body class="bg-cream min-h-screen flex flex-col font-dashiell tracking-wide overscroll-none" style="font-family: 'Dashiell', serif;">
+    <div id="page-loader">
+        <div class="loader-square shadow-lg"></div>
+    </div>
+    <header class="fixed top-0 left-0 right-0 px-3 py-3 md:py-4 md:px-16 bg-cream z-50 border-b border-cream-border">
         <nav class="flex justify-between items-center mx-auto">
             <div class="tracking-wide text-2xl hidden md:block" style="font-family: 'Wolpe';">
-                <a href="index.html" class="nav-link">GUBIS</a>
+                <a href="index.html" class="nav-link text-cream-dark transition-link">GUBIS</a>
             </div>
             <div class="flex-auto md:flex-initial flex justify-center md:justify-end">
-                <div class="flex font-normal space-x-10 md:space-x-14 text-lg md:text-lg text-gray-400">
-                    <a href="index.html" class="nav-link">Portfolio</a>
-                    <a href="about.html" class="nav-link active">About Me</a>
+                <div class="flex font-normal space-x-10 md:space-x-14 text-lg md:text-lg text-cream-text">
+                    <a href="index.html" class="nav-link active transition-link">Portfolio</a>
+                    <a href="about.html" class="nav-link transition-link">About Me</a>
                     <a href="mailto:gubis333@gmail.com" class="nav-link hidden">Contact</a>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- Main Content -->
-    <main class="flex-1 pb-10 px-4 pt-20 md:px-40 relative z-10 bg-white min-h-[100vh]">
-        <!-- Testo Descrittivo -->
-        <section class="relative bg-white md:py-8">
-            <div class="grid grid-cols-1 lg:grid-cols-[2fr_2fr] md:gap-6 lg:gap-6">
-                <div class="bg-white bg-opacity-80 p-4">
-                    <h1 class="text-3xl md:text-4xl">
-                        Hello, I'm Gubis <br>
-                        <span class="italic">aka Alessandro Parente,</span> <br>
-                        I'm <span id="animated-role" class="inline-block transition-all duration-500">a Designer</span>
-                    </h1>
-                </div>
-                <div class="mobile-block-spacing bg-white bg-opacity-80 p-4">
-                    <p class="text-base md:text-lg md:leading-tight leading-tight">
-                        I'm a design graduate from Politecnico di Milano with a passion for creating functional designs that connect with people. My work focuses on UX/UI design, branding, and art direction. I'm inspired by the visual storytelling of filmmaker Alice Rohrwacher and the perfect user experience of TooGoodToGo. I thrive on collaborating with people from diverse backgrounds, always seeking new perspectives to inform my work.
-                    </p>
-                    <ul class="mt-8 md:mt-20 text-base md:text-lg leading-normal">
-                        <li>Email: <a href="mailto:gubis333@gmail.com" class="text-gray-400 hover:text-black">gubis333@gmail.com ↗</a></li>
-                        <li>Instagram: <a href="https://instagram.com/gubis.333" target="_blank" class="text-gray-400 hover:text-black">@gubis.333 ↗</a></li>
-                        <li>LinkedIn: <a href="https://www.linkedin.com/in/alessandro-parente-01a177259/" target="_blank" class="text-gray-400 hover:text-black">Alessandro Parente ↗</a></li>
-                    </ul>
-                    <div class="mt-8 md:mt-12">
-                        <a href="curriculum/CV.pdf" target="_blank" class="filter-tab text-sm md:text-base filter-tab active whitespace-nowrap py-2 px-4 border border-gray-400 text-gray-400 rounded-xl"> &#8595; Download CV
-                            <span class="hidden"> (PDF)</span>
-                        </a>
-                    </div>
+    <!-- Main Body Content (Enhanced Layout) -->
+    <main class="flex-1 pt-32 md:pt-48 pb-20 px-6 lg:px-40 md:px-24">
+        
+        <!-- Hero Section -->
+        <section class="max-w-5xl">
+            <span class="block text-xs md:text-sm text-cream-text tracking-[0.3em] uppercase mb-8 font-medium fade-slide">I'm Sorry :(</span>
+            <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] font-normal text-cream-dark fade-slide" style="font-family: 'Wolpe'; transition-delay: 0.1s;">
+                I’m currently coding the "About Me" page.
+            </h1>
+            <p class="mt-12 text-xl md:text-3xl text-cream-text font-light leading-relaxed max-w-3xl fade-slide" style="transition-delay: 0.2s;">
+                I'm taking a moment to shape this space so it correctly reflects my approach to design and strategy.
+            </p>
+        </section>
 
+        <!-- Divider -->
+        <div class="my-16 md:my-24 fade-slide" style="transition-delay: 0.3s;">
+            <hr class="border-t border-cream-border">
+        </div>
+
+        <!-- Info Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 fade-slide" style="transition-delay: 0.4s;">
+            
+            <!-- Left: Contact Column -->
+            <div>
+
+                <h2 class="text-2xl md:text-3xl font-normal text-cream-dark mb-6">In the meantime...</h2>
+                <p class="text-lg text-cream-text font-light mb-10 leading-relaxed">
+                    While this page is under maintenance, you can review my professional path and studies through my curriculum.
+                </p>
+                
+                <div class="bg-white/40 p-8 rounded-3xl border border-cream-border">
+                    <p class="text-sm text-cream-text uppercase tracking-widest mb-4 font-medium">Resume</p>
+                    <h3 class="text-xl font-normal text-cream-dark mb-6 italic">Studies, Projects & Experiences</h3>
+                    <a href="curriculum/CV.pdf" target="_blank" class="inline-flex items-center px-10 py-4 border border-cream-dark rounded-full text-cream-dark hover:bg-cream-dark hover:text-cream transition-all duration-300 text-sm font-medium tracking-widest uppercase">
+                        Open CV (PDF)
+                    </a>
                 </div>
             </div>
-        </section>
-        <!-- Foto sticker draggable -->
-        <div id="sticker-photo"
-            class="select-none" 
-            style="left:initial; top:350px; bottom:auto; z-index:1000; cursor:grab; touch-action:none; transform:rotate(5deg); width:300px; height:400px; position:absolute;">
-            <img src="https://res.cloudinary.com/dzwg40mls/image/upload/v1750078092/DSC_5785_hsgpvj.webp"
-                alt="Alessandro Parente"
-                style="width:100%; height:100%; border:6px solid #fff; box-shadow:0 6px 24px 0 rgba(0,0,0,0.18); object-fit:cover; background:#fff; pointer-events:none;">
-            <div id="sticker-rotate-area"
-                style="position:absolute; left:0; top:0; width:100%; height:100%; pointer-events:auto; z-index:20;"></div>
+
+            <!-- Right: CV Column -->
+            <div class="md:pl-12 md:border-l border-cream-border">
+                
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-normal text-cream-dark mb-6">Get in Touch</h2>
+                    <p class="text-lg text-cream-text leading-relaxed font-light max-w-md mb-10">
+                        Interested in a collaboration or just want to chat about design over a coffee? Let's connect.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col gap-6 items-start">
+                    <a href="mailto:gubis333@gmail.com" class="group flex items-center text-xl md:text-2xl text-cream-dark hover:text-flag-brand transition-colors">
+                        <span class="border-b border-cream-border group-hover:border-flag-brand pb-1">Email Me</span>
+                        <span class="ml-2 text-lg transform group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform">↗</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/alessandro-parente-01a177259/" target="_blank" class="group flex items-center text-xl md:text-2xl text-cream-dark hover:text-flag-ux transition-colors">
+                        <span class="border-b border-cream-border group-hover:border-flag-ux pb-1">LinkedIn Profile</span>
+                        <span class="ml-2 text-lg transform group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform">↗</span>
+                    </a>
+                </div>
+            </div>
         </div>
-        <style>
-            @media (max-width: 1024px) and (min-width: 769px) {
-                #sticker-photo {
-                    position: absolute !important;
-                    left: auto;
-                    right: 150px !important;
-                    top: auto;
-                    bottom: auto;
-                    width: 180px !important;
-                    height: 240px !important;
-                }
-            }
-            @media (max-width: 1024px) {
-                #sticker-photo {
-                    width: 180px !important;
-                    height: 240px !important;
-                }
-            }
-            @media (max-width: 768px) {
-                #sticker-photo {
-                    position: static !important;
-                    left: unset !important;
-                    top: unset !important;
-                    right: unset !important;
-                    bottom: unset !important;
-                    margin: 0 auto 1.5rem auto !important;
-                    display: block !important;
-                    transform: rotate(5deg) !important;
-                    width: 160px !important;
-                    height: 210px !important;
-                    cursor: grab !important;
-                    z-index: 1 !important;
-                }
-                #sticker-rotate-area {
-                    display: none !important;
-                }
-            }
-        </style>
+
     </main>
-    <!-- Footer -->
-    <footer class="text-base md:text-base px-6 py-6 md:py-10 lg:px-40 md:px-24 bg-gray-200 z-10 text-gray-400 md:-mt-8 rounded-t-3xl">
-        <div>
-            <!-- Mobile -->
+
+    <footer class="text-base md:text-base px-6 py-12 md:py-20 lg:px-40 md:px-24 bg-cream-dark z-10 text-cream md:-mt-8 rounded-t-3xl">
+        <div class="mx-auto">
             <div class="block md:hidden w-full">
                 <div class="flex-col leading-tight ">
                     <div>
-                        <p class="text-gray-500 py-1"> Contacts: </p>
-                        <p><a href="mailto:gubis333@gmail.com" class="filter-tab">Mail ↗</a></p>
-                        <p><a href="https://www.linkedin.com/in/alessandro-parente-01a177259/" target="_blank" class="filter-tab">LinkedIn ↗</a></p>
+                        <p class="text-cream/60 py-1 uppercase tracking-widest text-xs mb-2"> Contacts </p>
+                        <p class="text-lg"><a href="mailto:gubis333@gmail.com" class="hover:text-flag-brand transition-colors">Mail ↗</a></p>
+                        <p class="text-lg"><a href="https://www.linkedin.com/in/alessandro-parente-01a177259/" target="_blank" class="hover:text-flag-ux transition-colors">LinkedIn ↗</a></p>
                     </div>
-                    <div class="mt-6 text-sm">
-                        <p>&copy; 2025 Gubis, all rights are reserved</p>
+                    <div class="mt-10 text-xs text-cream/40">
+                        <p>&copy; 2025 Gubis, all rights reserved</p>
+                        <p class="italic opacity-60 mt-1">Designed & Coded by Alessandro Parente</p>
                     </div>
                 </div>
             </div>
-            <!-- Desktop -->
             <div class="hidden md:flex w-full flex-row justify-between items-start leading-snug">
                 <div class="text-sm leading-tight">
-                    <p class="text-xl pb-2" style="font-family: 'Wolpe';">GUBIS</p>
-                    <p>&copy; 2025 Gubis</p>
-                    <p>All rights reserved Milan, Italy</p>
+                    <p class="text-3xl pb-4" style="font-family: 'Wolpe';">GUBIS</p>
+                    <p class="text-cream/60">&copy; 2025 Gubis</p>
+                    <p class="text-cream/60 italic opacity-60 mt-1">Designed & Coded by Alessandro Parente</p>
+                    <p class="text-cream/60">All rights reserved. Milan, Italy</p>
                 </div>
-                <div>
-                    <p class="text-gray-600 py-1"> Contacts: </p>
-                    <p><a href="mailto:gubis333@gmail.com" class="filter-tab">Mail ↗</a></p>
-                    <p><a href="https://www.linkedin.com/in/alessandro-parente-01a177259/" target="_blank" class="filter-tab">LinkedIn ↗</a></p>
+                <div class="text-right">
+                    <p class="text-cream/60 py-1 uppercase tracking-widest text-xs mb-3"> Contacts </p>
+                    <p class="text-xl mb-2"><a href="mailto:gubis333@gmail.com" class="hover:text-flag-brand transition-colors">Mail ↗</a></p>
+                    <p class="text-xl"><a href="https://www.linkedin.com/in/alessandro-parente-01a177259/" target="_blank" class="hover:text-flag-ux transition-colors">LinkedIn ↗</a></p>
                 </div>
             </div>
         </div>
     </footer>
     <script>
-        // Fade-in animazione pagina
-        document.addEventListener('DOMContentLoaded', function () {
-            document.body.classList.add('opacity-100');
-        });
-
-        // Smooth scroll to top for To Top link
+        // Smooth scroll to top
         document.querySelectorAll('.to-top-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -227,200 +266,84 @@
             });
         });
 
-        // Animazione fade-slide per immagini
-        document.addEventListener('DOMContentLoaded', function () {
-            const images = document.querySelectorAll('img.fade-slide');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-slide-in');
-                        observer.unobserve(entry.target);
+        // Animazione fade-slide
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeEls = document.querySelectorAll('.fade-slide');
+            fadeEls.forEach((el, i) => {
+                setTimeout(() => {
+                    el.classList.add('visible');
+                }, 150 + i * 120);
+            });
+        });
+
+        // 1. Definiamo la timeline di GSAP per il loop infinito del quadrato
+    const loaderSquare = document.querySelector('.loader-square');
+    const brandColors = ['#FF8A65', '#B39DDB', '#4FC3F7', '#DCE775', '#fca5a5'];
+    let currentColorIndex = 0;
+
+    const loaderTl = gsap.timeline({ repeat: -1 });
+
+    // Animazione di Flip X e cambio colore
+    loaderTl.to(loaderSquare, {
+        rotationX: -180,
+        duration: 0.7,
+        ease: "power2.inOut",
+        onStart: () => {
+            currentColorIndex = (currentColorIndex + 1) % brandColors.length;
+            gsap.to(loaderSquare, { backgroundColor: brandColors[currentColorIndex], duration: 0.3 });
+        }
+    })
+    // Animazione di Flip Y e cambio colore
+    .to(loaderSquare, {
+        rotationY: -180,
+        duration: 0.7,
+        ease: "power2.inOut",
+        onStart: () => {
+            currentColorIndex = (currentColorIndex + 1) % brandColors.length;
+            gsap.to(loaderSquare, { backgroundColor: brandColors[currentColorIndex], duration: 0.3 });
+        }
+    });
+
+    // 2. LOGICA DI ENTRATA (Quando la pagina finisce di caricare)
+    window.addEventListener('load', () => {
+        const loaderOverlay = document.getElementById('page-loader');
+        
+        // Dissolvenza in uscita dell'overlay crema
+        gsap.to(loaderOverlay, {
+            opacity: 0,
+            duration: 0.6,
+            ease: "power2.inOut",
+            onComplete: () => {
+                loaderOverlay.style.display = 'none';
+                loaderTl.pause(); // Ottimizzazione: ferma l'animazione quando non visibile
+            }
+        });
+    });
+
+    // 3. LOGICA DI USCITA (Quando si clicca su un link per cambiare pagina)
+    // Seleziona tutti i link che hanno la classe 'transition-link'
+    document.querySelectorAll('.transition-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const destination = this.getAttribute('href');
+            
+            // Evita l'animazione per link interni (#), mail o se non c'è destinazione
+            if (destination && destination !== '#' && !destination.startsWith('mailto')) {
+                e.preventDefault();
+                const loaderOverlay = document.getElementById('page-loader');
+                
+                loaderOverlay.style.display = 'flex';
+                loaderTl.play();
+                
+                gsap.fromTo(loaderOverlay, { opacity: 0 }, {
+                    opacity: 1,
+                    duration: 0.4,
+                    onComplete: () => {
+                        window.location.href = destination;
                     }
                 });
-            }, { threshold: 0.1 });
-            images.forEach(img => observer.observe(img));
+            }
         });
-
-        // Header background trasparente on top, bianco on scroll
-        document.addEventListener('DOMContentLoaded', function () {
-            // Animated roles in h1
-            const roles = [
-                "a Designer",
-                "an Illustrator",
-                "a Cinephile",
-                "a Board Gamer",
-
-            ];
-            const roleSpan = document.getElementById('animated-role');
-            let idx = 0;
-
-            function animateRoleChange() {
-                // Fade out
-                roleSpan.style.opacity = 0;
-                setTimeout(() => {
-                    idx = (idx + 1) % roles.length;
-                    roleSpan.textContent = roles[idx];
-                    // Fade in
-                    roleSpan.style.opacity = 1;
-                }, 400);
-            }
-
-            // Initial fade in
-            roleSpan.style.opacity = 1;
-            setInterval(animateRoleChange, 2200);
-        });
-
-        // Draggable & rotatable sticker photo (mobile: return to place after drag)
-        (function() {
-            const sticker = document.getElementById('sticker-photo');
-            const rotateArea = document.getElementById('sticker-rotate-area');
-            function isMobile() {
-                return window.innerWidth <= 768;
-            }
-            let isDragging = false;
-            let isRotating = false;
-            let offsetX = 0, offsetY = 0;
-            let rotation = 5;
-            let center = { x: 0, y: 0 };
-            let initial = { left: '', top: '', position: '', transform: '' };
-
-            function setRotation(deg) {
-                rotation = deg;
-                sticker.style.transform = `rotate(${rotation}deg)`;
-            }
-
-            function getAngle(cx, cy, px, py) {
-                return Math.atan2(py - cy, px - cx) * 180 / Math.PI;
-            }
-
-            // Drag
-            function onMouseDown(e) {
-                // Save initial position for mobile
-                if (isMobile()) {
-                    const rect = sticker.getBoundingClientRect();
-                    initial.left = sticker.style.left;
-                    initial.top = sticker.style.top;
-                    initial.position = sticker.style.position;
-                    initial.transform = sticker.style.transform;
-                    isDragging = true;
-                    sticker.style.cursor = 'grabbing';
-                    offsetX = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
-                    offsetY = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
-                    sticker.style.position = 'fixed';
-                    // Usa solo eventi touch su mobile
-                    document.addEventListener('touchmove', onMouseMove, {passive:false});
-                    document.addEventListener('touchend', onMouseUp);
-                    return;
-                }
-                // Check if near border for rotation (20px from edge)
-                const rect = sticker.getBoundingClientRect();
-                const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
-                const y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
-                const border = 24;
-                if (
-                    x < border || x > rect.width - border ||
-                    y < border || y > rect.height - border
-                ) {
-                    isRotating = true;
-                    center = {
-                        x: rect.left + rect.width / 2,
-                        y: rect.top + rect.height / 2
-                    };
-                    sticker.style.cursor = 'crosshair';
-                    document.addEventListener('mousemove', onRotateMove);
-                    document.addEventListener('mouseup', onRotateUp);
-                    document.addEventListener('touchmove', onRotateMove, {passive:false});
-                    document.addEventListener('touchend', onRotateUp);
-                } else {
-                    isDragging = true;
-                    sticker.style.cursor = 'grabbing';
-                    offsetX = x;
-                    offsetY = y;
-                    document.addEventListener('mousemove', onMouseMove);
-                    document.addEventListener('mouseup', onMouseUp);
-                    document.addEventListener('touchmove', onMouseMove, {passive:false});
-                    document.addEventListener('touchend', onMouseUp);
-                }
-            }
-            function onMouseMove(e) {
-                if (!isDragging) return;
-                e.preventDefault && e.preventDefault();
-                // Su mobile usa solo touch
-                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-                sticker.style.left = (clientX - offsetX) + 'px';
-                sticker.style.top = (clientY - offsetY) + 'px';
-                sticker.style.bottom = 'auto';
-                sticker.style.right = 'auto';
-                sticker.style.position = 'fixed';
-                sticker.style.transform = `rotate(${rotation}deg)`;
-            }
-            function onMouseUp() {
-                if (isMobile()) {
-                    // Restore initial position after drag on mobile
-                    sticker.style.position = initial.position || '';
-                    sticker.style.left = '';
-                    sticker.style.top = '';
-                    sticker.style.bottom = '';
-                    sticker.style.right = '';
-                    sticker.style.transform = initial.transform || 'rotate(5deg)';
-                    isDragging = false;
-                    sticker.style.cursor = 'grab';
-                    document.removeEventListener('touchmove', onMouseMove);
-                    document.removeEventListener('touchend', onMouseUp);
-                    return;
-                }
-                isDragging = false;
-                sticker.style.cursor = 'grab';
-                document.removeEventListener('mousemove', onMouseMove);
-                document.removeEventListener('mouseup', onMouseUp);
-                document.removeEventListener('touchmove', onMouseMove);
-                document.removeEventListener('touchend', onMouseUp);
-            }
-
-            // Rotation
-            let startAngle = 0, startRotation = 0;
-            function onRotateMove(e) {
-                if (!isRotating) return;
-                e.preventDefault && e.preventDefault();
-                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-                const angle = getAngle(center.x, center.y, clientX, clientY);
-                if (typeof startAngle !== 'number') startAngle = angle;
-                setRotation(startRotation + angle - startAngle);
-            }
-            function onRotateUp(e) {
-                isRotating = false;
-                sticker.style.cursor = 'grab';
-                startAngle = 0;
-                startRotation = rotation;
-                document.removeEventListener('mousemove', onRotateMove);
-                document.removeEventListener('mouseup', onRotateUp);
-                document.removeEventListener('touchmove', onRotateMove);
-                document.removeEventListener('touchend', onRotateUp);
-            }
-
-            // Start rotation on border
-            if (rotateArea) {
-                rotateArea.addEventListener('mousedown', onMouseDown);
-                rotateArea.addEventListener('touchstart', onMouseDown, {passive:false});
-            }
-            sticker.addEventListener('mousedown', onMouseDown);
-            sticker.addEventListener('touchstart', onMouseDown, {passive:false});
-
-            // Sposta lo sticker sopra il titolo su mobile
-            function moveStickerMobile() {
-                if (isMobile()) {
-                    const main = document.querySelector('main');
-                    if (main && sticker && main.firstChild !== sticker) {
-                        main.insertBefore(sticker, main.firstChild);
-                    }
-                }
-            }
-            window.addEventListener('resize', moveStickerMobile);
-            document.addEventListener('DOMContentLoaded', moveStickerMobile);
-            moveStickerMobile();
-        })();
+    });
     </script>
 </body>
 </html>

@@ -386,9 +386,10 @@
             document.querySelectorAll('.fade-slide').forEach(el => observer.observe(el));
         });
 
-        // To Top
-        document.querySelector('.to-top-link').addEventListener('click', (e) => {
-            e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Scorrimento fluido verso l'alto
+        document.querySelector('.to-top-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>

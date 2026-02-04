@@ -246,7 +246,7 @@
 
         <!-- 1. THE CHALLENGE & IMPACT -->
         <section class="px-6 lg:px-40 md:px-24 py-16 md:py-32">
-            <div class="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-12 items-end">
+            <div class="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-12 lg:gap-20 items-start">
                 <div class="fade-slide">
                     <p class="text-flag-brand uppercase tracking-[0.3em] text-xs font-bold mb-4">The Challenge</p>
                     <h2 class="text-3xl md:text-5xl text-cream-dark leading-tight mb-8" style="font-family: 'Wolpe';">
@@ -257,6 +257,9 @@
                     </p>
                 </div>
                 <div class="fade-slide flex flex-col gap-6" style="animation-delay: 0.2s;">
+                    <!-- Expected Impact Label (Allineato orizzontalmente a "The Challenge") -->
+                    <p class="text-flag-brand uppercase tracking-[0.3em] text-xs font-bold mb-4">Expected Impact</p>
+                    
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-cream-border">
                         <span class="text-4xl md:text-5xl text-flag-brand font-bold block mb-2">110k</span>
                         <p class="text-xs uppercase tracking-widest text-cream-text font-bold leading-tight">Liters of water saved per hectare/year</p>
@@ -466,15 +469,19 @@
             </div>
         </section>
 
-        <!-- Project Nav -->
-        <div class="px-6 lg:px-40 md:px-24 py-16 flex justify-between items-center border-t border-cream-border/50">
-            <a href="narciso.html" class="px-8 py-3 border border-cream-border rounded-full text-cream-text hover:border-cream-dark hover:text-cream-dark transition-all text-xs font-bold uppercase tracking-widest">
+        <!-- Navigation -->
+        <div class="px-6 lg:px-40 md:px-24 py-16 md:py-32 flex justify-between items-center">
+            <a href="narciso.html" class="px-10 py-4 md:px-8 md:py-3 border border-cream-border rounded-full text-cream-text hover:border-cream-dark hover:text-cream-dark transition-all text-sm md:text-base font-medium flex items-center justify-center min-w-[110px] md:min-w-0">
                 ← Prev
             </a>
-            <a href="jempy.html" class="px-8 py-3 border border-cream-border rounded-full text-cream-text hover:text-cream-dark transition-all text-xs font-bold uppercase tracking-widest">
+            <a href="#" class="to-top-link hidden md:block text-sm md:text-base py-2 px-8 text-cream-text">
+                To Top ↑
+            </a>
+            <a href="jemp.html" class="px-10 py-4 md:px-8 md:py-3 border border-cream-border rounded-full text-cream-text hover:border-cream-dark hover:text-cream-dark transition-all text-sm md:text-base font-medium flex items-center justify-center min-w-[110px] md:min-w-0">
                 Next →
             </a>
         </div>
+    </main>
     </main>
 
     <!-- Lightbox -->
@@ -500,6 +507,12 @@
     </footer>
 
     <script>
+        // Scorrimento fluido verso l'alto
+        document.querySelector('.to-top-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
         // Lightbox Logic
         const lightbox = document.getElementById('lightbox-overlay');
         const lightboxImg = document.getElementById('lightbox-img');

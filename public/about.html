@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCE5X012DD"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-YCE5X012DD');
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Gubis (Alessandro Parente) - Design Projects</title>
-
-    <meta name="description" content="Gubis (Alessandro Parente) è un designer emergente a Milano specializzato in UX/UI Design, branding e art direction. Scopri i suoi progetti creativi e il portfolio.">
-    <meta name="keywords" content="Gubis, Alessandro Parente, designer Milano, UX/UI Design, graphic design, art direction, branding, portfolio, emergente">
-    <meta property="og:title" content="Gubis | Designer Milano" />
-    <meta property="og:description" content="Portfolio di Gubis (Alessandro Parente), designer specializzato in UX/UI Design, Branding e Art Direction." />
-    <meta property="og:image" content="https://res.cloudinary.com/dzwg40mls/image/upload/v1748858093/Personal_Project_Thumbnail_skssxo.webp" />
-    <meta property="og:url" content="https://www.gubisdesign.com" />
-    <meta property="og:type" content="website" />
+    <title>Gubis (Alessandro Parente) - About Me | UX/UI Designer & Branding Milano</title>
 
     <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
@@ -28,27 +20,22 @@
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Gubis" />
     <link rel="manifest" href="favicon/site.webmanifest" />
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-                // Palette Perla/Terra (Updated to less saturated pearl)
-                'cream': '#F5F4F1',       // Pearl White (Slightly less saturated)
+                'cream': '#F5F4F1',
                 'cream-dark': '#1C1B19',  
                 'cream-text': '#8A8680',  
                 'cream-border': '#E6E2D6',
-                
-                // 5 Core Categories Palette (Updated)
-                'flag-brand': '#FF8A65',  // Branding (Warm Orange)
-                'flag-ux': '#B39DDB',     // UX/UI (Soft Purple)
-                'flag-service': '#4FC3F7',// Service (Bright Blue)
-                'flag-ai': '#DCE775',     // AI (Lime Green)
-                'flag-exp': '#fca5a5',    // Experiments (Rose Coral)
-            },
-            screens: {
-                '3xl': '1920px',
+                'flag-brand': '#FF8A65',
+                'flag-ux': '#B39DDB',
+                'flag-service': '#4FC3F7',
+                'flag-ai': '#DCE775',
+                'flag-exp': '#fca5a5',
             }
           },
         },
@@ -59,92 +46,79 @@
     @font-face {
         font-family: 'Dashiell';
         src: url('https://res.cloudinary.com/dzwg40mls/raw/upload/v1750186604/Dashiell-Regular_ijnmru.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
+        font-weight: normal; font-style: normal; font-display: swap;
     }
     @font-face {
-        font-family: 'Dashiell';
-        src: url('https://res.cloudinary.com/dzwg40mls/raw/upload/v1750186604/Dashiell-Italic_eme2ys.woff') format('woff');
-        font-weight: normal;
-        font-style: italic;
-        font-display: swap;
-    }
-    @font-face {
-            font-family: 'Wolpe';
-            src: url('https://res.cloudinary.com/dzwg40mls/raw/upload/v1753139198/08fd6ffb87aac63ca5d4a4da848f4b86_qki7m6.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
+        font-family: 'Wolpe';
+        src: url('https://res.cloudinary.com/dzwg40mls/raw/upload/v1753139198/08fd6ffb87aac63ca5d4a4da848f4b86_qki7m6.woff') format('woff');
+        font-weight: normal; font-style: normal; font-display: swap;
     }
     
-    @supports (height: 100svh) {
-        body { min-height: 100svh; }
-    }
-
-    /* Overlay a tutto schermo */
     #page-loader {
-        position: fixed;
-        inset: 0;
-        background-color: #F5F4F1; /* Sfondo Crema */
-        z-index: 10000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        perspective: 1000px; /* Profondità per l'effetto 3D */
+        position: fixed; inset: 0; background-color: #F5F4F1; z-index: 10000;
+        display: flex; align-items: center; justify-content: center; perspective: 1000px;
     }
-
-    /* Il quadratino animato */
     .loader-square {
-        width: 45px;
-        height: 45px;
-        background-color: #FF8A65; /* Colore iniziale (Brand) */
-        border-radius: 4px;
-        transform-style: preserve-3d;
+        width: 45px; height: 45px; background-color: #FF8A65; border-radius: 4px; transform-style: preserve-3d;
     }
 
-    .project-hover {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s cubic-bezier(.4,0,.2,1), filter 0.5s cubic-bezier(.4,0,.2,1);
-        will-change: transform, filter;
-        transform-origin: center center;
-        backface-visibility: hidden;
-    }
-
-    .project-item:hover .project-hover {
-        transform: scale(1.06);
-        filter: brightness(1.02);
-    }
-
-    .nav-link, .to-top-link { transition: color 0.2s; }
-    .nav-link:hover, .to-top-link:hover { color: #1C1B19; }
+    .nav-link { transition: color 0.2s; }
+    .nav-link:hover { color: #1C1B19; }
     .nav-link.active { color: #1C1B19 !important; border-color: #1C1B19 !important; }
-    .nav-link:hover { border-color: #1C1B19; }
 
     .fade-slide {
+        opacity: 0; transform: translateY(40px);
+        transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+    }
+    .fade-slide.visible { opacity: 1; transform: translateY(0); }
+
+    /* Linea tratteggiata: tratti lunghi e spaziati (12px dash, 8px gap) */
+    .custom-dashed {
+        background-image: linear-gradient(to right, #E6E2D6 60%, rgba(255,255,255,0) 0%);
+        background-position: center;
+        background-size: 20px 1px;
+        background-repeat: repeat-x;
+        height: 1px;
+        width: 100%;
+    }
+
+    /* Sticker Styles - Allineato a sinistra con il titolo (lg:px-40 = 10rem) */
+    #sticker-photo {
+        z-index: 50;
+        cursor: grab;
+        touch-action: none;
+        width: 280px;
+        height: 360px;
+        position: absolute;
+        top: 480px; 
+        left: 10rem; 
         opacity: 0;
-        transform: translateY(90px);
-        transition: opacity 0.6s cubic-bezier(.4,0,.2,1), transform 0.6s cubic-bezier(.4,0,.2,1);
     }
-    .fade-slide.visible {
-        opacity: 1;
-        transform: translateY(0);
+
+    @media (max-width: 1024px) {
+        #sticker-photo {
+            width: 220px; height: 280px;
+            top: 400px;
+            left: 6rem; 
+        }
     }
-    
-    /* Animation for flags on hover */
-    .project-item:hover .flag-tag {
-        height: 2.2rem; /* Elongate slightly on hover */
-    }
-    .flag-tag {
-        transition: height 0.3s ease;
+
+    @media (max-width: 768px) {
+        #sticker-photo {
+            position: relative;
+            top: 0;
+            left: 0;
+            margin: 0 auto 3rem auto;
+            width: 200px;
+            height: 260px;
+            display: block;
+        }
+        #sticker-rotate-area { display: none; }
     }
     </style>
-
 </head>
 <body class="bg-cream min-h-screen flex flex-col font-dashiell tracking-wide overscroll-none" style="font-family: 'Dashiell', serif;">
+
     <div id="page-loader">
         <div class="loader-square shadow-lg"></div>
     </div>
@@ -155,74 +129,94 @@
             </div>
             <div class="flex-auto md:flex-initial flex justify-center md:justify-end">
                 <div class="flex font-normal space-x-10 md:space-x-14 text-lg md:text-lg text-cream-text">
-                    <a href="index.html" class="nav-link active transition-link">Portfolio</a>
-                    <a href="about.html" class="nav-link transition-link">About Me</a>
+                    <a href="index.html" class="nav-link transition-link">Portfolio</a>
+                    <a href="about.html" class="nav-link active transition-link">About Me</a>
                     <a href="mailto:gubis333@gmail.com" class="nav-link hidden">Contact</a>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- Main Body Content (Enhanced Layout) -->
-    <main class="flex-1 pt-32 md:pt-48 pb-20 px-6 lg:px-40 md:px-24">
+    <main class="flex-1 pt-32 md:pt-48 pb-48 px-6 lg:px-40 md:px-24 relative overflow-x-hidden md:overflow-visible">
         
-        <!-- Hero Section -->
-        <section class="max-w-5xl">
-            <span class="block text-xs md:text-sm text-cream-text tracking-[0.3em] uppercase mb-8 font-medium fade-slide">I'm Sorry :(</span>
-            <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] font-normal text-cream-dark fade-slide" style="font-family: 'Wolpe'; transition-delay: 0.1s;">
-                I’m currently coding the "About Me" page.
-            </h1>
-            <p class="mt-12 text-xl md:text-3xl text-cream-text font-light leading-relaxed max-w-3xl fade-slide" style="transition-delay: 0.2s;">
-                I'm taking a moment to shape this space so it correctly reflects my approach to design and strategy.
-            </p>
+        <section class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-[2fr_2fr] gap-12 lg:gap-20 items-start">
+                
+                <div class="fade-slide">
+                    <!-- Titolo: Font Dashiell, leading ottimizzato e colori differenziati -->
+                    <h1 class="text-4xl md:text-5xl lg:text-[3rem] leading-[1.05] text-cream-dark">
+                        Hello, I'm Gubis <br>
+                        <span class="italic">aka Alessandro Parente,</span> <br>
+                        <span class="text-cream-text">I'm <span id="animated-role" class="inline-block transition-all duration-500 opacity-0">a Designer</span></span>
+                    </h1>
+                </div>
+
+                <div class="fade-slide" style="transition-delay: 0.1s;">
+                    <p class="text-lg md:text-xl text-cream-text leading-relaxed font-light mb-12">
+                        I'm a design graduate from Politecnico di Milano with a passion for creating functional designs that connect with people. I'm from Milan, Italy and here are a few things I love: 
+                        <a href="https://it.wikipedia.org/wiki/Alice_Rohrwacher" target="_blank" class="hover:text-cream-dark transition-colors border-b border-cream-border">Alice Rohrwacher</a>, 
+                        <a href="https://www.catan.com/" target="_blank" class="hover:text-cream-dark transition-colors border-b border-cream-border">Catan</a>, 
+                        <a href="https://www.toogoodtogo.com/" target="_blank" class="hover:text-cream-dark transition-colors border-b border-cream-border">TooGoodToGo</a>, 
+                        <a href="https://it.wikipedia.org/wiki/Mina_(cantante)" target="_blank" class="hover:text-cream-dark transition-colors border-b border-cream-border">Mina</a> and 
+                        <a href="https://it.wikipedia.org/wiki/Beach_volley" target="_blank" class="hover:text-cream-dark transition-colors border-b border-cream-border">Beach Volley</a>.
+                    </p>
+
+                    <!-- Skills Section con linee tratteggiate divise -->
+                    <div class="mb-12 space-y-10">
+                        <!-- Primo Gruppo -->
+                        <div class="grid grid-cols-2 gap-x-12">
+                            <div class="py-2 text-sm md:text-base text-cream-dark">Service Design</div>
+                            <div class="py-2 text-sm md:text-base text-cream-dark">Visual Identity</div>
+                            <div class="custom-dashed"></div><div class="custom-dashed"></div>
+                            <div class="py-2 text-sm md:text-base text-cream-dark">Strategy</div>
+                            <div class="py-2 text-sm md:text-base text-cream-dark">Communication</div>
+                            <div class="custom-dashed"></div><div class="custom-dashed"></div>
+                            <div class="py-2 text-sm md:text-base text-cream-dark">UX/UI Design</div>
+                            <div class="py-2 text-sm md:text-base text-cream-dark">Marketing</div>
+                            <div></div>
+                        </div>
+
+                        <!-- Secondo Gruppo -->
+                        <div class="grid grid-cols-2 gap-x-12">
+                            <div class="py-2 text-sm md:text-base text-cream-dark">Adobe Suite</div>
+                            <div class="py-2 text-sm md:text-base text-cream-dark">Figma</div>
+                            <div class="custom-dashed"></div><div class="custom-dashed"></div>
+                            <div class="py-2 text-sm md:text-base text-cream-dark">Miro</div>
+                            <div class="py-2 text-sm md:text-base text-cream-dark">Notion</div>
+                            <div class="custom-dashed"></div><div class="custom-dashed"></div>
+                            <div class="py-2 text-sm md:text-base text-cream-dark">VS Code</div>
+                            <div class="py-2 text-sm md:text-base text-cream-dark">Gemini</div>
+                            <div></div>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-4 text-lg md:text-xl mb-12">
+                        <li>
+                            <span class="text-xs uppercase tracking-widest text-cream-text/60 block mb-1">Email</span>
+                            <a href="mailto:gubis333@gmail.com" class="text-cream-dark hover:text-flag-brand transition-colors border-b border-cream-border pb-1">gubis333@gmail.com ↗</a>
+                        </li>
+                        <li>
+                            <span class="text-xs uppercase tracking-widest text-cream-text/60 block mb-1">Social</span>
+                            <div class="flex gap-6">
+                                <a href="https://instagram.com/gubis.333" target="_blank" class="text-cream-dark hover:text-flag-exp transition-colors border-b border-cream-border pb-1">Instagram ↗</a>
+                                <a href="https://www.linkedin.com/in/alessandro-parente-01a177259/" target="_blank" class="text-cream-dark hover:text-flag-ux transition-colors border-b border-cream-border pb-1">LinkedIn ↗</a>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a href="curriculum/CV.pdf" target="_blank" class="inline-flex items-center px-8 py-3 border border-cream-dark rounded-full text-cream-dark hover:bg-cream-dark hover:text-cream transition-all duration-300 text-sm font-medium tracking-widest uppercase">
+                        ↓ Download CV (PDF)
+                    </a>
+                </div>
+            </div>
         </section>
 
-        <!-- Divider -->
-        <div class="my-16 md:my-24 fade-slide" style="transition-delay: 0.3s;">
-            <hr class="border-t border-cream-border">
-        </div>
-
-        <!-- Info Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 fade-slide" style="transition-delay: 0.4s;">
-            
-            <!-- Left: Contact Column -->
-            <div>
-
-                <h2 class="text-2xl md:text-3xl font-normal text-cream-dark mb-6">In the meantime...</h2>
-                <p class="text-lg text-cream-text font-light mb-10 leading-relaxed">
-                    While this page is under maintenance, you can review my professional path and studies through my curriculum.
-                </p>
-                
-                <div class="bg-white/40 p-8 rounded-3xl border border-cream-border">
-                    <p class="text-sm text-cream-text uppercase tracking-widest mb-4 font-medium">Resume</p>
-                    <h3 class="text-xl font-normal text-cream-dark mb-6 italic">Studies, Projects & Experiences</h3>
-                    <a href="curriculum/CV.pdf" target="_blank" class="inline-flex items-center px-10 py-4 border border-cream-dark rounded-full text-cream-dark hover:bg-cream-dark hover:text-cream transition-all duration-300 text-sm font-medium tracking-widest uppercase">
-                        Open CV (PDF)
-                    </a>
-                </div>
-            </div>
-
-            <!-- Right: CV Column -->
-            <div class="md:pl-12 md:border-l border-cream-border">
-                
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-normal text-cream-dark mb-6">Get in Touch</h2>
-                    <p class="text-lg text-cream-text leading-relaxed font-light max-w-md mb-10">
-                        Interested in a collaboration or just want to chat about design over a coffee? Let's connect.
-                    </p>
-                </div>
-                
-                <div class="flex flex-col gap-6 items-start">
-                    <a href="mailto:gubis333@gmail.com" class="group flex items-center text-xl md:text-2xl text-cream-dark hover:text-flag-brand transition-colors">
-                        <span class="border-b border-cream-border group-hover:border-flag-brand pb-1">Email Me</span>
-                        <span class="ml-2 text-lg transform group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform">↗</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/alessandro-parente-01a177259/" target="_blank" class="group flex items-center text-xl md:text-2xl text-cream-dark hover:text-flag-ux transition-colors">
-                        <span class="border-b border-cream-border group-hover:border-flag-ux pb-1">LinkedIn Profile</span>
-                        <span class="ml-2 text-lg transform group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform">↗</span>
-                    </a>
-                </div>
-            </div>
+        <!-- Foto sticker interattiva -->
+        <div id="sticker-photo" class="select-none">
+            <img src="https://res.cloudinary.com/dzwg40mls/image/upload/v1750078092/DSC_5785_hsgpvj.webp"
+                alt="Alessandro Parente"
+                class="w-full h-full border-[8px] border-white shadow-xl object-cover bg-white pointer-events-none rounded-sm">
+            <div id="sticker-rotate-area" class="absolute inset-0 pointer-events-auto z-20"></div>
         </div>
 
     </main>
@@ -246,8 +240,8 @@
                 <div class="text-sm leading-tight">
                     <p class="text-3xl pb-4" style="font-family: 'Wolpe';">GUBIS</p>
                     <p class="text-cream/60">&copy; 2025 Gubis</p>
-                    <p class="text-cream/60 italic opacity-60 mt-1">Designed & Coded by Alessandro Parente</p>
-                    <p class="text-cream/60">All rights reserved. Milan, Italy</p>
+                    <p class="text-cream/60 italic">Designed & Coded by Alessandro Parente</p>
+                    <p class="text-cream/60 opacity-60">All rights reserved. Milan, Italy.</p>
                 </div>
                 <div class="text-right">
                     <p class="text-cream/60 py-1 uppercase tracking-widest text-xs mb-3"> Contacts </p>
@@ -257,93 +251,227 @@
             </div>
         </div>
     </footer>
-    <script>
-        // Smooth scroll to top
-        document.querySelectorAll('.to-top-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
 
-        // Animazione fade-slide
-        document.addEventListener('DOMContentLoaded', function() {
+    <script>
+        // --- Animazioni Generali ---
+        document.addEventListener('DOMContentLoaded', () => {
             const fadeEls = document.querySelectorAll('.fade-slide');
             fadeEls.forEach((el, i) => {
-                setTimeout(() => {
-                    el.classList.add('visible');
-                }, 150 + i * 120);
+                setTimeout(() => el.classList.add('visible'), 150 + i * 150);
             });
         });
 
-        // 1. Definiamo la timeline di GSAP per il loop infinito del quadrato
-    const loaderSquare = document.querySelector('.loader-square');
-    const brandColors = ['#FF8A65', '#B39DDB', '#4FC3F7', '#DCE775', '#fca5a5'];
-    let currentColorIndex = 0;
-
-    const loaderTl = gsap.timeline({ repeat: -1 });
-
-    // Animazione di Flip X e cambio colore
-    loaderTl.to(loaderSquare, {
-        rotationX: -180,
-        duration: 0.7,
-        ease: "power2.inOut",
-        onStart: () => {
-            currentColorIndex = (currentColorIndex + 1) % brandColors.length;
-            gsap.to(loaderSquare, { backgroundColor: brandColors[currentColorIndex], duration: 0.3 });
-        }
-    })
-    // Animazione di Flip Y e cambio colore
-    .to(loaderSquare, {
-        rotationY: -180,
-        duration: 0.7,
-        ease: "power2.inOut",
-        onStart: () => {
-            currentColorIndex = (currentColorIndex + 1) % brandColors.length;
-            gsap.to(loaderSquare, { backgroundColor: brandColors[currentColorIndex], duration: 0.3 });
-        }
-    });
-
-    // 2. LOGICA DI ENTRATA (Quando la pagina finisce di caricare)
-    window.addEventListener('load', () => {
-        const loaderOverlay = document.getElementById('page-loader');
-        
-        // Dissolvenza in uscita dell'overlay crema
-        gsap.to(loaderOverlay, {
-            opacity: 0,
-            duration: 0.6,
-            ease: "power2.inOut",
-            onComplete: () => {
-                loaderOverlay.style.display = 'none';
-                loaderTl.pause(); // Ottimizzazione: ferma l'animazione quando non visibile
+        // --- GSAP Loader ---
+        const loaderSquare = document.querySelector('.loader-square');
+        const brandColors = ['#FF8A65', '#B39DDB', '#4FC3F7', '#DCE775', '#fca5a5'];
+        let currentColorIndex = 0;
+        const loaderTl = gsap.timeline({ repeat: -1 });
+        loaderTl.to(loaderSquare, {
+            rotationX: -180, duration: 0.7, ease: "power2.inOut",
+            onStart: () => {
+                currentColorIndex = (currentColorIndex + 1) % brandColors.length;
+                gsap.to(loaderSquare, { backgroundColor: brandColors[currentColorIndex], duration: 0.3 });
+            }
+        }).to(loaderSquare, {
+            rotationY: -180, duration: 0.7, ease: "power2.inOut",
+            onStart: () => {
+                currentColorIndex = (currentColorIndex + 1) % brandColors.length;
+                gsap.to(loaderSquare, { backgroundColor: brandColors[currentColorIndex], duration: 0.3 });
             }
         });
-    });
 
-    // 3. LOGICA DI USCITA (Quando si clicca su un link per cambiare pagina)
-    // Seleziona tutti i link che hanno la classe 'transition-link'
-    document.querySelectorAll('.transition-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-            const destination = this.getAttribute('href');
-            
-            // Evita l'animazione per link interni (#), mail o se non c'è destinazione
-            if (destination && destination !== '#' && !destination.startsWith('mailto')) {
-                e.preventDefault();
-                const loaderOverlay = document.getElementById('page-loader');
-                
-                loaderOverlay.style.display = 'flex';
-                loaderTl.play();
-                
-                gsap.fromTo(loaderOverlay, { opacity: 0 }, {
-                    opacity: 1,
-                    duration: 0.4,
+        window.addEventListener('load', () => {
+            const loaderOverlay = document.getElementById('page-loader');
+            gsap.to(loaderOverlay, {
+                opacity: 0, duration: 0.6, ease: "power2.inOut",
+                onComplete: () => {
+                    loaderOverlay.style.display = 'none';
+                    loaderTl.pause();
+                    initStickerEntry();
+                }
+            });
+        });
+
+        // --- Transizione Pagine ---
+        document.querySelectorAll('.transition-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const dest = this.getAttribute('href');
+                if (dest && dest !== '#' && !dest.startsWith('mailto')) {
+                    e.preventDefault();
+                    const loaderOverlay = document.getElementById('page-loader');
+                    loaderOverlay.style.display = 'flex';
+                    loaderTl.play();
+                    gsap.fromTo(loaderOverlay, { opacity: 0 }, {
+                        opacity: 1, duration: 0.4,
+                        onComplete: () => { window.location.href = dest; }
+                    });
+                }
+            });
+        });
+
+        // --- Animazione Ruoli ---
+        const roles = ["a Designer", "an Illustrator", "a Cinephile", "a Board Gamer"];
+        const roleSpan = document.getElementById('animated-role');
+        let roleIdx = 0;
+        function animateRole() {
+            roleSpan.style.opacity = 0;
+            setTimeout(() => {
+                roleIdx = (roleIdx + 1) % roles.length;
+                roleSpan.textContent = roles[roleIdx];
+                roleSpan.style.opacity = 1;
+            }, 400);
+        }
+        roleSpan.style.opacity = 1;
+        setInterval(animateRole, 2200);
+
+        // --- Logica Sticker Avanzata ---
+        const sticker = document.getElementById('sticker-photo');
+        let isDragging = false, isRotating = false;
+        let startX, startY, startAngle, startRotation;
+        let rotation = 5;
+        let lastVibrationAngle = 5;
+        let angleVelocity = 0;
+        let lastAngle = 0;
+        const originalRotation = 5;
+
+        // Funzione per attivare la "scrollatina" (Nudge)
+        function triggerNudge() {
+            if (!isDragging && !isRotating && !gsap.isTweening(sticker)) {
+                gsap.to(sticker, { 
+                    rotation: rotation + 10, duration: 0.3, ease: "power2.out", 
                     onComplete: () => {
-                        window.location.href = destination;
+                        gsap.to(sticker, { 
+                            rotation: rotation, duration: 0.6, ease: "elastic.out(1, 0.3)",
+                            onUpdate: function() { rotation = gsap.getProperty(sticker, "rotation"); }
+                        });
                     }
                 });
             }
-        });
-    });
+        }
+
+        // Entrata Sticker
+        function initStickerEntry() {
+            gsap.fromTo(sticker, 
+                { opacity: 0, y: 30, rotation: originalRotation },
+                { 
+                    opacity: 1, y: 0, duration: 1, ease: "power2.out",
+                    onComplete: () => {
+                        // Nudge immediato dopo l'entrata
+                        setTimeout(triggerNudge, 300);
+                    }
+                }
+            );
+        }
+
+        function getAngle(cx, cy, px, py) {
+            return Math.atan2(py - cy, px - cx) * 180 / Math.PI;
+        }
+
+        function onStart(e) {
+            gsap.killTweensOf(sticker);
+            const rect = sticker.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const distFromCenterX = Math.abs(clientX - centerX);
+            const distFromCenterY = Math.abs(clientY - centerY);
+            
+            if (distFromCenterX > rect.width * 0.35 || distFromCenterY > rect.height * 0.35) {
+                isRotating = true;
+                startAngle = getAngle(centerX, centerY, clientX, clientY);
+                startRotation = rotation;
+                lastAngle = startAngle;
+                angleVelocity = 0;
+                sticker.style.cursor = 'crosshair';
+            } else {
+                isDragging = true;
+                startX = clientX;
+                startY = clientY;
+                sticker.style.cursor = 'grabbing';
+            }
+            
+            window.addEventListener(e.touches ? 'touchmove' : 'mousemove', onMove, { passive: false });
+            window.addEventListener(e.touches ? 'touchend' : 'mouseup', onEnd);
+        }
+
+        function onMove(e) {
+            e.preventDefault();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+            if (isDragging) {
+                const dx = clientX - startX;
+                const dy = clientY - startY;
+                gsap.set(sticker, { x: dx, y: dy });
+            }
+
+            if (isRotating) {
+                const rect = sticker.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                const currentAngle = getAngle(centerX, centerY, clientX, clientY);
+                angleVelocity = currentAngle - lastAngle;
+                lastAngle = currentAngle;
+                rotation = startRotation + (currentAngle - startAngle);
+                gsap.set(sticker, { rotation: rotation });
+
+                if (Math.abs(rotation - lastVibrationAngle) >= 10) {
+                    if ("vibrate" in navigator) navigator.vibrate(8);
+                    lastVibrationAngle = rotation;
+                }
+            }
+        }
+
+        function onEnd() {
+            if (isDragging) {
+                gsap.to(sticker, { x: 0, y: 0, duration: 0.8, ease: "elastic.out(1, 0.5)" });
+            }
+
+            if (isRotating) {
+                const throwIntensity = Math.min(Math.max(angleVelocity * 15, -1000), 1000);
+                const finalRawRotation = rotation + throwIntensity;
+                const nearestFullCircle = Math.round((finalRawRotation - originalRotation) / 360) * 360;
+                const finalTargetRotation = nearestFullCircle + originalRotation;
+
+                gsap.to(sticker, { 
+                    rotation: finalTargetRotation, 
+                    duration: Math.max(0.6, Math.abs(throwIntensity) / 100), 
+                    ease: "back.out(1.2)",
+                    onUpdate: function() {
+                        rotation = gsap.getProperty(sticker, "rotation");
+                    }
+                });
+            }
+            
+            isDragging = false;
+            isRotating = false;
+            sticker.style.cursor = 'grab';
+            window.removeEventListener('mousemove', onMove);
+            window.removeEventListener('mouseup', onEnd);
+            window.removeEventListener('touchmove', onMove);
+            window.removeEventListener('touchend', onEnd);
+        }
+
+        sticker.addEventListener('mousedown', onStart);
+        sticker.addEventListener('touchstart', onStart, { passive: false });
+
+        // Nudge automatico periodico ogni 8 secondi
+        setInterval(triggerNudge, 8000);
+
+        function moveStickerMobile() {
+            const isMobile = window.innerWidth <= 768;
+            const main = document.querySelector('main');
+            const sticker = document.getElementById('sticker-photo');
+            if (isMobile && main && sticker) {
+                const firstSection = main.querySelector('section');
+                if (firstSection && firstSection.contains(sticker)) return;
+                main.insertBefore(sticker, main.firstChild);
+            }
+        }
+        window.addEventListener('resize', moveStickerMobile);
+        moveStickerMobile();
+
     </script>
 </body>
 </html>
